@@ -86,6 +86,28 @@
         }
     }
     
+    // Listen for scroll events
+    window.addEventListener('scroll', updateActiveSection);
+    
+    // Also run when page loads
+    updateActiveSection();
+    
+    // Optional: Smooth scroll when clicking nav links
+    navLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href');
+            const targetElement = document.querySelector(targetId);
+            
+            if (targetElement) {
+                targetElement.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        });
+    });
+}); 
 
         // Back to Top
         const backToTop = document.getElementById('backToTop');
