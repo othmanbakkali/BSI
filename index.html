@@ -3,686 +3,1251 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BSI — Boukri Service Informatique</title>
+    <title>BSI — Expert Caméras de Surveillance & Systèmes Informatiques | Tanger</title>
+    <meta name="description" content="BSI (Boukri Service Informatique) à Tanger : Expert en installation de caméras de surveillance HD/4K, systèmes de sécurité, contrôle d'accès, réseaux et maintenance informatique. Contactez-nous au 0661494384.">
+    <meta name="keywords" content="caméra de surveillance Tanger, vidéosurveillance Tanger, système de sécurité Tanger, BSI Tanger, informatique Tanger, alarme Tanger, contrôle d'accès Tanger, 0661494384, Lalla Chafia">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="icon" type="image/jpeg" href="assets/images/NewLogo.jpeg">
+    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="apple-touch-icon" href="assets/images/NewLogo.jpeg">
+
+    <!-- Tailwind CSS with custom configuration -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#f0f7ff',
+                            100: '#e0effe',
+                            200: '#bae0fd',
+                            300: '#7cc5fb',
+                            400: '#38a9f8',
+                            500: '#0e8ce9',
+                            600: '#0270c7',
+                            700: '#0359a1',
+                            800: '#074b84',
+                            900: '#0c3f6e',
+                            950: '#082849',
+                        },
+                        whatsapp: {
+                            DEFAULT: '#25D366',
+                            dark: '#128C7E',
+                            light: '#dcf8c6',
+                            hover: '#20ba59'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Custom Stylesheet -->
     <link rel="stylesheet" href="assets/css/style.css">
-
 </head>
-<body class="bg-white text-slate-900 antialiased overflow-x-hidden">
+<body class="bg-slate-50 text-slate-900 antialiased overflow-x-hidden selection:bg-brand-600 selection:text-white">
 
-    <!-- Navigation -->
-    <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
-        <div class="max-w-7xl mx-auto px-6 lg:px-8">
-            <div class="flex items-center justify-between h-20">
-                <!-- Logo -->
-                <a href="#accueil" class="flex-shrink-0 logo-img">
-                    <img src="assets/images/NewLogo.jpeg"
-                         alt="BSI - Boukri Service Informatique"
-                         class="h-14 w-auto rounded-lg">
+    <!-- Top Announcement & Quick Contact Bar -->
+    <div class="bg-slate-950 text-slate-300 text-xs py-2.5 px-4 border-b border-slate-800/80 relative z-50">
+        <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-2">
+            <div class="flex items-center gap-4 flex-wrap justify-center sm:justify-start">
+                <span class="inline-flex items-center gap-1.5 text-brand-400 font-medium">
+                    <span class="w-2 h-2 rounded-full bg-emerald-400 animate-live-dot"></span>
+                    Expert Caméras & Systèmes de Sécurité • Tanger
+                </span>
+                <span class="hidden md:inline text-slate-600">•</span>
+                <a href="https://www.google.com/maps/search/?api=1&query=22+Rue+Cancer+N+4+Lalla+Chafia+Tanger" target="_blank" rel="noopener" class="hidden md:inline-flex items-center gap-1.5 text-slate-400 hover:text-white transition-colors">
+                    <i data-lucide="map-pin" class="w-3.5 h-3.5 text-brand-400"></i>
+                    <span>22 Rue Cancer N° 4, Lalla Chafia, Tanger</span>
                 </a>
-
-                <!-- Desktop Menu -->
-                <div class="hidden md:flex items-center gap-8">
-                    <a href="#accueil" class="nav-link text-sm font-medium text-slate-600 hover:text-brand-700 transition-colors">Accueil</a>
-                    <a href="#apropos" class="nav-link text-sm font-medium text-slate-600 hover:text-brand-700 transition-colors">À Propos</a>
-                    <a href="#services" class="nav-link text-sm font-medium text-slate-600 hover:text-brand-700 transition-colors">Services</a>
-                    <a href="#contact" class="nav-link text-sm font-medium text-slate-600 hover:text-brand-700 transition-colors">Contact</a>
-                    <a href="#contact" class="btn-primary text-white text-sm font-medium px-6 py-2.5 rounded-lg inline-flex items-center gap-2">
-                        <span>Contactez-nous</span>
-                        <i data-lucide="arrow-right" class="w-4 h-4"></i>
-                    </a>
-                </div>
-
-                <!-- Mobile Menu Button -->
-                <button id="menuBtn" class="md:hidden p-2 rounded-lg hover:bg-slate-100 transition-colors" aria-label="Menu">
-                    <i data-lucide="menu" class="w-6 h-6 text-slate-700"></i>
-                </button>
             </div>
-        </div>
-    </nav>
-
-    <!-- Mobile Overlay -->
-    <div id="mobileOverlay" class="mobile-overlay fixed inset-0 bg-black/40 z-50 md:hidden"></div>
-
-    <!-- Mobile Menu -->
-    <div id="mobileMenu" class="mobile-menu fixed top-0 right-0 bottom-0 w-80 bg-white z-50 md:hidden shadow-2xl">
-        <div class="flex items-center justify-between p-6 border-b border-slate-100">
-            <img src="assets/images/NewLogo.jpeg"
-                 alt="BSI" class="h-10 w-auto rounded-lg">
-            <button id="closeMenuBtn" class="p-2 rounded-lg hover:bg-slate-100 transition-colors" aria-label="Fermer">
-                <i data-lucide="x" class="w-5 h-5 text-slate-700"></i>
-            </button>
-        </div>
-        <div class="flex flex-col p-6 gap-1">
-            <a href="#accueil" class="mobile-link flex items-center gap-3 px-4 py-3 rounded-lg text-slate-700 hover:bg-brand-50 hover:text-brand-700 font-medium transition-colors">
-                <i data-lucide="home" class="w-5 h-5"></i> Accueil
-            </a>
-            <a href="#apropos" class="mobile-link flex items-center gap-3 px-4 py-3 rounded-lg text-slate-700 hover:bg-brand-50 hover:text-brand-700 font-medium transition-colors">
-                <i data-lucide="info" class="w-5 h-5"></i> À Propos
-            </a>
-            <a href="#services" class="mobile-link flex items-center gap-3 px-4 py-3 rounded-lg text-slate-700 hover:bg-brand-50 hover:text-brand-700 font-medium transition-colors">
-                <i data-lucide="settings" class="w-5 h-5"></i> Services
-            </a>
-            <a href="#contact" class="mobile-link flex items-center gap-3 px-4 py-3 rounded-lg text-slate-700 hover:bg-brand-50 hover:text-brand-700 font-medium transition-colors">
-                <i data-lucide="mail" class="w-5 h-5"></i> Contact
-            </a>
-            <div class="mt-4 pt-4 border-t border-slate-100">
-                <a href="#contact" class="mobile-link btn-primary text-white text-center font-medium px-6 py-3 rounded-lg flex items-center justify-center gap-2">
-                    Contactez-nous <i data-lucide="arrow-right" class="w-4 h-4"></i>
+            <div class="flex items-center gap-4 text-xs">
+                <!-- Daily Visitors Live Count -->
+                <div class="hidden sm:inline-flex items-center gap-1.5 bg-slate-900/90 px-3 py-1 rounded-full border border-slate-800 text-slate-300">
+                    <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-live-dot"></span>
+                    <span>Visites/jour :</span>
+                    <span id="topDailyVisitors" class="font-extrabold text-emerald-400">185</span>
+                </div>
+                <span class="text-slate-700 hidden sm:inline">|</span>
+                <!-- Phone Direct Link -->
+                <a href="tel:+212661494384" class="inline-flex items-center gap-1.5 font-semibold text-white hover:text-brand-400 transition-colors">
+                    <i data-lucide="phone" class="w-3.5 h-3.5 text-brand-400"></i>
+                    <span>06 61 49 43 84</span>
+                </a>
+                <span class="text-slate-700">|</span>
+                <!-- WhatsApp Quick Link -->
+                <a href="https://wa.me/212661494384?text=Bonjour%20BSI,%20je%20souhaite%20un%20devis%20ou%20des%20renseignements%20pour%20des%20cam%C3%A9ras%20ou%20syst%C3%A8mes." target="_blank" rel="noopener" class="inline-flex items-center gap-1.5 text-emerald-400 hover:text-emerald-300 font-semibold transition-colors">
+                    <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
+                        <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86.174.086.275.072.376-.044.101-.116.433-.506.549-.68.116-.173.231-.144.39-.086s1.011.477 1.184.564.289.13.332.202c.043.073.043.419-.101.824z"/>
+                    </svg>
+                    <span>WhatsApp Direct</span>
                 </a>
             </div>
         </div>
     </div>
 
+    <!-- Navigation Header -->
+    <nav id="navbar" class="sticky top-0 left-0 right-0 z-40 transition-all duration-300 bg-white/90 backdrop-blur-md border-b border-slate-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <!-- Logo & Brand Name -->
+                <a href="#accueil" class="flex items-center gap-3 group logo-img">
+                    <img src="assets/images/NewLogo.jpeg"
+                         alt="BSI - Boukri Service Informatique - Caméras & Systèmes"
+                         class="h-12 sm:h-14 w-auto rounded-xl shadow-sm border border-slate-100 object-contain">
+                    <div class="flex flex-col">
+                        <span class="text-xl sm:text-2xl font-extrabold tracking-tight text-slate-900 leading-none">
+                            BSI
+                        </span>
+                        <span class="text-[11px] font-semibold text-brand-600 tracking-wider uppercase mt-1">
+                            Caméras & Systèmes IT
+                        </span>
+                    </div>
+                </a>
+
+                <!-- Desktop Menu -->
+                <div class="hidden lg:flex items-center gap-7">
+                    <a href="#accueil" class="nav-link text-sm font-semibold text-slate-700 hover:text-brand-600 transition-colors py-1">Accueil</a>
+                    <a href="materiel.html" class="nav-link text-sm font-semibold text-slate-700 hover:text-brand-600 transition-colors py-1 flex items-center gap-1.5">
+                        <i data-lucide="cpu" class="w-4 h-4 text-brand-500"></i>
+                        <span>Matériel & Caisses</span>
+                        <span class="text-[10px] bg-brand-100 text-brand-700 font-bold px-1.5 py-0.5 rounded-full">Catalogue</span>
+                    </a>
+                    <a href="#cameras-focus" class="nav-link text-sm font-semibold text-slate-700 hover:text-brand-600 transition-colors py-1 flex items-center gap-1.5">
+                        <i data-lucide="video" class="w-4 h-4 text-brand-500"></i>
+                        <span>Caméras & Sécurité</span>
+                    </a>
+                    <a href="#services" class="nav-link text-sm font-semibold text-slate-700 hover:text-brand-600 transition-colors py-1">Nos Services</a>
+                    <a href="#apropos" class="nav-link text-sm font-semibold text-slate-700 hover:text-brand-600 transition-colors py-1">À Propos</a>
+                    <a href="#contact" class="nav-link text-sm font-semibold text-slate-700 hover:text-brand-600 transition-colors py-1">Contact</a>
+                </div>
+
+                <!-- Desktop Action Buttons -->
+                <div class="hidden sm:flex items-center gap-3">
+                    <!-- WhatsApp Action -->
+                    <a href="https://wa.me/212661494384?text=Bonjour%20BSI,%20je%20souhaite%20un%20devis%20pour%20une%20installation%20de%20cam%C3%A9ras%20ou%20syst%C3%A8mes." target="_blank" rel="noopener" class="btn-whatsapp text-white text-xs sm:text-sm font-semibold px-4 py-2.5 rounded-xl inline-flex items-center gap-2 shadow-sm">
+                        <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24">
+                            <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/>
+                        </svg>
+                        <span>WhatsApp</span>
+                    </a>
+
+                    <!-- Direct Call Button -->
+                    <a href="tel:+212661494384" class="btn-primary text-white text-xs sm:text-sm font-semibold px-4 sm:px-5 py-2.5 rounded-xl inline-flex items-center gap-2 shadow-sm">
+                        <i data-lucide="phone-call" class="w-4 h-4"></i>
+                        <span>06 61 49 43 84</span>
+                    </a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <button id="menuBtn" class="lg:hidden p-2 rounded-xl border border-slate-200 text-slate-700 hover:bg-slate-100 transition-colors" aria-label="Menu de navigation">
+                    <i data-lucide="menu" class="w-6 h-6"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Drawer Overlay -->
+    <div id="mobileOverlay" class="mobile-overlay fixed inset-0 bg-slate-950/60 z-50 lg:hidden backdrop-blur-xs"></div>
+
+    <!-- Mobile Drawer Menu -->
+    <div id="mobileMenu" class="mobile-menu fixed top-0 right-0 bottom-0 w-84 max-w-[85vw] bg-white z-50 lg:hidden shadow-2xl flex flex-col justify-between">
+        <div>
+            <!-- Mobile Header -->
+            <div class="flex items-center justify-between p-5 border-b border-slate-100 bg-slate-50">
+                <div class="flex items-center gap-3">
+                    <img src="assets/images/NewLogo.jpeg" alt="BSI" class="h-10 w-auto rounded-lg">
+                    <div>
+                        <div class="font-extrabold text-slate-900 leading-tight">BSI Tanger</div>
+                        <div class="text-[10px] text-brand-600 font-semibold uppercase">Caméras & Systèmes</div>
+                    </div>
+                </div>
+                <button id="closeMenuBtn" class="p-2 rounded-lg hover:bg-slate-200 transition-colors" aria-label="Fermer le menu">
+                    <i data-lucide="x" class="w-5 h-5 text-slate-600"></i>
+                </button>
+            </div>
+
+            <!-- Mobile Links -->
+            <div class="flex flex-col p-5 gap-1.5">
+                <a href="#accueil" class="mobile-link flex items-center gap-3 px-4 py-3 rounded-xl text-slate-800 hover:bg-brand-50 hover:text-brand-600 font-medium transition-colors">
+                    <i data-lucide="home" class="w-5 h-5 text-slate-400"></i> Accueil
+                </a>
+                <a href="materiel.html" class="mobile-link flex items-center justify-between px-4 py-3 rounded-xl text-slate-800 hover:bg-brand-50 hover:text-brand-600 font-medium transition-colors">
+                    <div class="flex items-center gap-3">
+                        <i data-lucide="cpu" class="w-5 h-5 text-brand-500"></i> Matériel & Caisses
+                    </div>
+                    <span class="text-[10px] bg-brand-100 text-brand-700 font-bold px-2 py-0.5 rounded-full">Catalogue</span>
+                </a>
+                <a href="#cameras-focus" class="mobile-link flex items-center gap-3 px-4 py-3 rounded-xl text-slate-800 hover:bg-brand-50 hover:text-brand-600 font-medium transition-colors">
+                    <i data-lucide="video" class="w-5 h-5 text-brand-500"></i> Caméras & Sécurité
+                </a>
+                <a href="#services" class="mobile-link flex items-center gap-3 px-4 py-3 rounded-xl text-slate-800 hover:bg-brand-50 hover:text-brand-600 font-medium transition-colors">
+                    <i data-lucide="layers" class="w-5 h-5 text-slate-400"></i> Nos Services
+                </a>
+                <a href="#apropos" class="mobile-link flex items-center gap-3 px-4 py-3 rounded-xl text-slate-800 hover:bg-brand-50 hover:text-brand-600 font-medium transition-colors">
+                    <i data-lucide="info" class="w-5 h-5 text-slate-400"></i> À Propos
+                </a>
+                <a href="#contact" class="mobile-link flex items-center gap-3 px-4 py-3 rounded-xl text-slate-800 hover:bg-brand-50 hover:text-brand-600 font-medium transition-colors">
+                    <i data-lucide="mail" class="w-5 h-5 text-slate-400"></i> Contact
+                </a>
+            </div>
+        </div>
+
+        <!-- Mobile Drawer Footer with Contact Quick Links -->
+        <div class="p-5 border-t border-slate-100 bg-slate-50 space-y-3">
+            <a href="tel:+212661494384" class="btn-primary w-full text-white text-center font-semibold py-3 px-4 rounded-xl flex items-center justify-center gap-2 text-sm shadow-md">
+                <i data-lucide="phone-call" class="w-4 h-4"></i>
+                <span>Appeler : 06 61 49 43 84</span>
+            </a>
+            <a href="https://wa.me/212661494384?text=Bonjour%20BSI,%20je%20souhaite%20un%20devis%20pour%20des%20cam%C3%A9ras%20ou%20syst%C3%A8mes." target="_blank" rel="noopener" class="btn-whatsapp w-full text-white text-center font-semibold py-3 px-4 rounded-xl flex items-center justify-center gap-2 text-sm shadow-md">
+                <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24">
+                    <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86.174.086.275.072.376-.044.101-.116.433-.506.549-.68.116-.173.231-.144.39-.086s1.011.477 1.184.564.289.13.332.202c.043.073.043.419-.101.824z"/>
+                </svg>
+                <span>WhatsApp Direct</span>
+            </a>
+            <div class="text-[11px] text-slate-500 text-center pt-2">
+                📍 22 Rue Cancer N° 4, Lalla Chafia, Tanger
+            </div>
+        </div>
+    </div>
+
     <!-- Hero Section -->
-    <section id="accueil" class="relative min-h-screen flex items-center overflow-hidden bg-gradient-to-br from-slate-50 via-white to-brand-50/30">
-        <!-- Background Grid -->
-        <div class="hero-grid absolute inset-0"></div>
+    <section id="accueil" class="relative min-h-[92vh] flex items-center overflow-hidden bg-gradient-to-b from-white via-brand-50/20 to-slate-50 py-16 lg:py-24">
+        <!-- Interactive Background Grid & Ambient Lighting -->
+        <div class="hero-grid absolute inset-0 pointer-events-none"></div>
+        <div class="absolute top-10 right-10 w-[500px] h-[500px] bg-brand-400/10 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="absolute bottom-10 left-10 w-[400px] h-[400px] bg-emerald-400/10 rounded-full blur-3xl pointer-events-none"></div>
 
-        <!-- Decorative Elements -->
-        <div class="absolute top-20 right-0 w-96 h-96 bg-brand-500/5 rounded-full blur-3xl"></div>
-        <div class="absolute bottom-0 left-0 w-80 h-80 bg-brand-600/5 rounded-full blur-3xl"></div>
-        <div class="absolute top-1/2 left-1/3 w-64 h-64 bg-brand-400/3 rounded-full blur-2xl animate-float"></div>
+        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+            <div class="grid lg:grid-cols-12 gap-12 lg:gap-8 items-center">
 
-        <!-- Floating Tech Icons -->
-        <div class="absolute top-32 right-[15%] hidden lg:block animate-float" style="animation-delay: 0s;">
-            <div class="w-14 h-14 bg-white rounded-xl shadow-lg shadow-brand-500/10 flex items-center justify-center border border-slate-100">
-                <i data-lucide="monitor" class="w-6 h-6 text-brand-500"></i>
-            </div>
-        </div>
-        <div class="absolute top-[45%] right-[8%] hidden lg:block animate-float" style="animation-delay: 2s;">
-            <div class="w-12 h-12 bg-white rounded-xl shadow-lg shadow-brand-500/10 flex items-center justify-center border border-slate-100">
-                <i data-lucide="server" class="w-5 h-5 text-brand-600"></i>
-            </div>
-        </div>
-        <div class="absolute bottom-32 right-[20%] hidden lg:block animate-float" style="animation-delay: 4s;">
-            <div class="w-10 h-10 bg-white rounded-lg shadow-lg shadow-brand-500/10 flex items-center justify-center border border-slate-100">
-                <i data-lucide="wifi" class="w-4 h-4 text-brand-400"></i>
-            </div>
-        </div>
-
-        <div class="relative max-w-7xl mx-auto px-6 lg:px-8 py-32 lg:py-0 w-full">
-            <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-                <!-- Left Content -->
-                <div class="order-2 lg:order-1">
-                    <div class="animate-fade-in-up" style="opacity:0; animation-fill-mode:forwards;">
-                        <span class="inline-flex items-center gap-2 bg-brand-50 text-brand-700 text-xs font-semibold tracking-wider uppercase px-4 py-2 rounded-full border border-brand-100 mb-6">
-                            <span class="w-2 h-2 bg-brand-500 rounded-full animate-pulse"></span>
-                            Votre partenaire IT de confiance
+                <!-- Left Content Column (7 cols) -->
+                <div class="lg:col-span-7 space-y-6">
+                    <!-- Top Pill Tag -->
+                    <div class="animate-fade-in-up">
+                        <span class="inline-flex items-center gap-2.5 bg-brand-50/80 backdrop-blur-sm text-brand-700 text-xs font-bold tracking-wide uppercase px-4 py-2 rounded-full border border-brand-200/80 shadow-xs">
+                            <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-live-dot"></span>
+                            Expert en Caméras de Surveillance & Systèmes • Tanger
                         </span>
                     </div>
 
-                    <h1 class="animate-fade-in-up delay-100 text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight leading-[1.1] mb-6" style="opacity:0; animation-fill-mode:forwards;">
-                        Solutions informatiques
-                        <span class="bg-gradient-to-r from-brand-600 via-brand-500 to-brand-400 bg-clip-text text-transparent"> fiables</span>
-                        et performantes
+                    <!-- Main Catchy Title -->
+                    <h1 class="animate-fade-in-up delay-100 text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-slate-900 leading-[1.12]">
+                        Expert en <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-600 via-brand-500 to-sky-500">Caméras</span> & <span class="text-slate-900">Systèmes</span> de Sécurité
                     </h1>
 
-                    <p class="animate-fade-in-up delay-200 text-lg text-slate-500 leading-relaxed mb-8 max-w-lg" style="opacity:0; animation-fill-mode:forwards;">
-                        Réparation, installation, infrastructure et support technique — nous accompagnons les professionnels avec expertise et réactivité.
+                    <!-- Descriptive Subtitle -->
+                    <p class="animate-fade-in-up delay-200 text-base sm:text-lg text-slate-600 leading-relaxed max-w-2xl">
+                        <strong class="text-slate-800">Boukri Service Informatique (BSI)</strong> assure l'installation de caméras de surveillance haute définition (IP/4K, vision nocturne, alertes IA), systèmes d'alarme, contrôle d'accès et infrastructures réseau à Tanger. Visualisez vos locaux en direct 24h/24 sur votre smartphone.
                     </p>
 
-                    <div class="animate-fade-in-up delay-300 flex flex-wrap gap-4 mb-12" style="opacity:0; animation-fill-mode:forwards;">
-                        <a href="#contact" class="btn-primary text-white font-medium px-8 py-3.5 rounded-xl inline-flex items-center gap-2 text-sm">
-                            <span>Contactez-nous</span>
-                            <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                    <!-- Primary CTAs -->
+                    <div class="animate-fade-in-up delay-300 flex flex-wrap items-center gap-3.5 pt-2">
+                        <!-- WhatsApp Action CTA -->
+                        <a href="https://wa.me/212661494384?text=Bonjour%20BSI,%20je%20souhaite%20un%20devis%20pour%20l'installation%20de%20cam%C3%A9ras%20ou%20syst%C3%A8mes." target="_blank" rel="noopener" class="btn-whatsapp text-white font-bold px-6 sm:px-7 py-3.5 rounded-xl inline-flex items-center gap-2.5 text-sm sm:text-base shadow-lg animate-pulse-whatsapp">
+                            <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                                <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/>
+                            </svg>
+                            <span>Devis Express sur WhatsApp</span>
                         </a>
-                        <a href="#services" class="btn-outline border-2 border-slate-200 text-slate-700 font-medium px-8 py-3.5 rounded-xl inline-flex items-center gap-2 text-sm">
-                            <span>Nos services</span>
-                            <i data-lucide="chevron-down" class="w-4 h-4"></i>
+
+                        <!-- Direct Phone Call CTA -->
+                        <a href="tel:+212661494384" class="btn-primary text-white font-bold px-6 sm:px-7 py-3.5 rounded-xl inline-flex items-center gap-2.5 text-sm sm:text-base shadow-lg">
+                            <i data-lucide="phone-call" class="w-5 h-5"></i>
+                            <span>06 61 49 43 84</span>
+                        </a>
+
+                        <!-- Learn More / Services -->
+                        <a href="#cameras-focus" class="btn-outline border border-slate-300 bg-white/80 backdrop-blur-sm text-slate-700 font-semibold px-5 py-3.5 rounded-xl inline-flex items-center gap-2 text-sm hover:border-brand-500">
+                            <span>Voir nos solutions</span>
+                            <i data-lucide="arrow-down" class="w-4 h-4 text-brand-600"></i>
                         </a>
                     </div>
 
-                    <!-- Stats -->
-                    <div class="animate-fade-in-up delay-400 flex gap-10" style="opacity:0; animation-fill-mode:forwards;">
-                        <div>
-                            <div class="text-3xl font-bold text-slate-900">10+</div>
-                            <div class="text-sm text-slate-400 mt-1">Ans d'expérience</div>
-                        </div>
-                        <div class="w-px bg-slate-200"></div>
-                        <div>
-                            <div class="text-3xl font-bold text-slate-900">500+</div>
-                            <div class="text-sm text-slate-400 mt-1">Clients satisfaits</div>
-                        </div>
-                        <div class="w-px bg-slate-200"></div>
-                        <div>
-                            <div class="text-3xl font-bold text-slate-900">24/7</div>
-                            <div class="text-sm text-slate-400 mt-1">Support disponible</div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Right Visual -->
-                <div class="order-1 lg:order-2 flex justify-center animate-scale-in delay-200" style="opacity:0; animation-fill-mode:forwards;">
-                    <div class="relative">
-                        <!-- Main Card -->
-                        <div class="w-72 h-72 sm:w-80 sm:h-80 bg-gradient-to-br from-brand-600 to-brand-800 rounded-3xl shadow-2xl shadow-brand-500/25 animate-pulse-glow flex items-center justify-center">
-                            <img src="assets/images/NewLogo.jpeg"
-                                 alt="BSI Logo"
-                                 class="w-52 h-auto rounded-xl shadow-lg">
-                        </div>
-
-                        <!-- Floating Badge 1 -->
-                        <div class="absolute -top-4 -right-4 bg-white rounded-2xl shadow-xl shadow-slate-200/50 px-4 py-3 border border-slate-100 animate-float" style="animation-delay: 1s;">
-                            <div class="flex items-center gap-2">
-                                <div class="w-8 h-8 bg-green-50 rounded-lg flex items-center justify-center">
-                                    <i data-lucide="shield-check" class="w-4 h-4 text-green-500"></i>
-                                </div>
-                                <div>
-                                    <div class="text-xs font-semibold text-slate-800">Certifié</div>
-                                    <div class="text-[10px] text-slate-400">Professionnel</div>
-                                </div>
+                    <!-- Highlight Badges -->
+                    <div class="animate-fade-in-up delay-400 grid grid-cols-2 sm:grid-cols-4 gap-3 pt-4 border-t border-slate-200/80">
+                        <div class="flex items-center gap-2.5">
+                            <div class="w-8 h-8 rounded-lg bg-emerald-100 flex items-center justify-center flex-shrink-0 text-emerald-700 font-bold">
+                                <i data-lucide="smartphone" class="w-4 h-4"></i>
                             </div>
+                            <span class="text-xs font-semibold text-slate-700 leading-tight">Vision mobile en direct 24/7</span>
                         </div>
-
-                        <!-- Floating Badge 2 -->
-                        <div class="absolute -bottom-4 -left-4 bg-white rounded-2xl shadow-xl shadow-slate-200/50 px-4 py-3 border border-slate-100 animate-float" style="animation-delay: 3s;">
-                            <div class="flex items-center gap-2">
-                                <div class="w-8 h-8 bg-brand-50 rounded-lg flex items-center justify-center">
-                                    <i data-lucide="zap" class="w-4 h-4 text-brand-500"></i>
-                                </div>
-                                <div>
-                                    <div class="text-xs font-semibold text-slate-800">Rapide</div>
-                                    <div class="text-[10px] text-slate-400">Intervention</div>
-                                </div>
+                        <div class="flex items-center gap-2.5">
+                            <div class="w-8 h-8 rounded-lg bg-brand-100 flex items-center justify-center flex-shrink-0 text-brand-700 font-bold">
+                                <i data-lucide="shield-check" class="w-4 h-4"></i>
+                            </div>
+                            <span class="text-xs font-semibold text-slate-700 leading-tight">Caméras HD & 4K certifiées</span>
+                        </div>
+                        <div class="flex items-center gap-2.5">
+                            <div class="w-8 h-8 rounded-lg bg-sky-100 flex items-center justify-center flex-shrink-0 text-sky-700 font-bold">
+                                <i data-lucide="map-pin" class="w-4 h-4"></i>
+                            </div>
+                            <span class="text-xs font-semibold text-slate-700 leading-tight">Lalla Chafia, Tanger</span>
+                        </div>
+                        <div class="flex items-center gap-2.5">
+                            <div class="w-8 h-8 rounded-lg bg-indigo-100 flex items-center justify-center flex-shrink-0 text-indigo-700 font-bold">
+                                <i data-lucide="users" class="w-4 h-4"></i>
+                            </div>
+                            <div class="text-xs font-semibold text-slate-700 leading-tight">
+                                <span id="heroDailyVisitors" class="font-extrabold text-slate-900">185</span> visites / jour
                             </div>
                         </div>
                     </div>
                 </div>
+
+                <!-- Right Visual Column (5 cols) -->
+                <div class="lg:col-span-5 relative">
+                    <div class="relative mx-auto max-w-md lg:max-w-none">
+                        <!-- Main Visual Card with Generated High-Tech Camera Photo -->
+                        <div class="relative rounded-3xl overflow-hidden shadow-2xl shadow-slate-900/15 border-2 border-white/80 bg-slate-900 group">
+                            <img src="assets/images/camera-security.jpg"
+                                 alt="Installation Caméra de Surveillance 4K Haute Technologie BSI Tanger"
+                                 class="w-full h-80 sm:h-96 object-cover object-center group-hover:scale-105 transition-transform duration-700">
+
+                            <!-- Visual Overlay Gradient -->
+                            <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/30 to-transparent"></div>
+
+                            <!-- Live Surveillance Badge -->
+                            <div class="absolute top-4 left-4 bg-slate-900/80 backdrop-blur-md text-white text-xs font-semibold px-3 py-1.5 rounded-full border border-white/20 flex items-center gap-2 shadow-lg">
+                                <span class="w-2.5 h-2.5 rounded-full bg-red-500 animate-live-dot"></span>
+                                <span>REC • SURVEILLANCE 4K ACTIVE</span>
+                            </div>
+
+                            <!-- Resolution Badge -->
+                            <div class="absolute top-4 right-4 bg-brand-600/90 backdrop-blur-md text-white text-[11px] font-bold px-3 py-1.5 rounded-full border border-white/20 flex items-center gap-1 shadow-lg">
+                                <i data-lucide="sparkles" class="w-3.5 h-3.5"></i>
+                                <span>AI OPTICS</span>
+                            </div>
+
+                            <!-- Bottom Floating Card Information -->
+                            <div class="absolute bottom-4 left-4 right-4 bg-slate-900/90 backdrop-blur-md rounded-2xl p-4 border border-white/10 text-white">
+                                <div class="flex items-center justify-between">
+                                    <div class="flex items-center gap-3">
+                                        <div class="w-10 h-10 rounded-xl bg-brand-500/20 border border-brand-400/40 flex items-center justify-center text-brand-400">
+                                            <i data-lucide="video" class="w-5 h-5"></i>
+                                        </div>
+                                        <div>
+                                            <div class="text-sm font-bold text-white">Caméras IP & Vision Nocturne</div>
+                                            <div class="text-xs text-slate-300">Hikvision & Dahua • Accès Mobile</div>
+                                        </div>
+                                    </div>
+                                    <a href="https://wa.me/212661494384" target="_blank" rel="noopener" class="w-9 h-9 rounded-xl bg-whatsapp hover:bg-whatsapp-hover text-white flex items-center justify-center transition-colors">
+                                        <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                                            <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/>
+                                        </svg>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Floating Floating Logo Badge -->
+                        <div class="absolute -bottom-6 -left-6 bg-white rounded-2xl shadow-xl border border-slate-100 p-3.5 flex items-center gap-3 animate-float hidden sm:flex">
+                            <img src="assets/images/NewLogo.jpeg" alt="Logo BSI" class="w-12 h-12 rounded-xl object-contain border border-slate-100">
+                            <div>
+                                <div class="text-xs font-bold text-slate-900">BSI Informatique</div>
+                                <div class="text-[11px] font-semibold text-emerald-600 flex items-center gap-1">
+                                    <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+                                    Intervention rapide Tanger
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Floating Certification Badge -->
+                        <div class="absolute -top-4 -right-4 bg-white/95 backdrop-blur-md rounded-2xl shadow-lg border border-slate-100 py-2.5 px-4 animate-float-slow hidden sm:flex items-center gap-2.5">
+                            <div class="w-8 h-8 rounded-lg bg-brand-50 flex items-center justify-center text-brand-600">
+                                <i data-lucide="award" class="w-4 h-4"></i>
+                            </div>
+                            <div>
+                                <div class="text-xs font-bold text-slate-900">Garantie & Support</div>
+                                <div class="text-[10px] text-slate-500">Installation professionnelle</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
             </div>
-        </div>
-
-        <!-- Scroll Indicator -->
-        <div class="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce hidden md:flex flex-col items-center gap-2">
-            <span class="text-xs text-slate-400 tracking-wider uppercase">Défiler</span>
-            <i data-lucide="chevron-down" class="w-4 h-4 text-slate-400"></i>
         </div>
     </section>
 
-    <!-- À Propos Section -->
-    <section id="apropos" class="py-24 lg:py-32 bg-white relative">
-        <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-slate-200 to-transparent"></div>
-
-        <div class="max-w-7xl mx-auto px-6 lg:px-8">
-            <!-- Section Header -->
-            <div class="text-center mb-16 lg:mb-20 observe-animate">
-                <span class="inline-flex items-center gap-2 text-brand-600 text-xs font-semibold tracking-wider uppercase mb-4">
-                    <span class="w-8 h-px bg-brand-300"></span>
-                    Qui sommes-nous
-                    <span class="w-8 h-px bg-brand-300"></span>
+    <!-- Trust / Brands Bar -->
+    <div class="bg-white border-y border-slate-200/80 py-6">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-wrap items-center justify-between gap-6 text-slate-500 text-xs uppercase tracking-wider font-semibold">
+                <span class="text-slate-400">Technologies & Marques Maîtrisées :</span>
+                <span class="flex items-center gap-2 hover:text-slate-900 transition-colors">
+                    <i data-lucide="video" class="w-4 h-4 text-brand-500"></i> Hikvision
                 </span>
-                <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-slate-900 mb-4">
-                    À propos de <span class="text-brand-600">BSI</span>
-                </h2>
-                <p class="text-lg text-slate-500 max-w-2xl mx-auto">
-                    Une équipe dédiée à votre réussite technologique
-                </p>
-            </div>
-
-            <div class="grid lg:grid-cols-2 gap-16 lg:gap-20 items-center">
-                <!-- Left Image/Visual -->
-                <div class="observe-animate">
-                    <div class="relative">
-                        <div class="bg-gradient-to-br from-slate-900 to-slate-800 rounded-3xl p-8 lg:p-12 overflow-hidden">
-                            <!-- Decorative grid inside -->
-                            <div class="absolute inset-0 opacity-10"
-                                 style="background-image: linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px); background-size: 30px 30px;">
-                            </div>
-                            <div class="relative grid grid-cols-2 gap-4">
-                                <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/10 hover:bg-white/15 transition-colors">
-                                    <i data-lucide="cpu" class="w-8 h-8 text-brand-400 mb-3"></i>
-                                    <div class="text-white font-semibold text-sm">Hardware</div>
-                                    <div class="text-slate-400 text-xs mt-1">Expertise complète</div>
-                                </div>
-                                <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/10 hover:bg-white/15 transition-colors">
-                                    <i data-lucide="cloud" class="w-8 h-8 text-brand-400 mb-3"></i>
-                                    <div class="text-white font-semibold text-sm">Cloud</div>
-                                    <div class="text-slate-400 text-xs mt-1">Solutions modernes</div>
-                                </div>
-                                <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/10 hover:bg-white/15 transition-colors">
-                                    <i data-lucide="network" class="w-8 h-8 text-brand-400 mb-3"></i>
-                                    <div class="text-white font-semibold text-sm">Réseaux</div>
-                                    <div class="text-slate-400 text-xs mt-1">Infrastructure fiable</div>
-                                </div>
-                                <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/10 hover:bg-white/15 transition-colors">
-                                    <i data-lucide="headphones" class="w-8 h-8 text-brand-400 mb-3"></i>
-                                    <div class="text-white font-semibold text-sm">Support</div>
-                                    <div class="text-slate-400 text-xs mt-1">Assistance 24/7</div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Accent dot -->
-                        <div class="absolute -bottom-3 -right-3 w-6 h-6 bg-brand-500 rounded-full"></div>
-                        <div class="absolute -top-3 -left-3 w-3 h-3 bg-brand-300 rounded-full"></div>
-                    </div>
-                </div>
-
-                <!-- Right Content -->
-                <div class="observe-animate">
-                    <h3 class="text-2xl lg:text-3xl font-bold text-slate-900 mb-6 leading-tight">
-                        Votre partenaire technologique depuis plus de <span class="text-brand-600">10 ans</span>
-                    </h3>
-                    <p class="text-slate-500 leading-relaxed mb-6">
-                        <strong class="text-slate-700">Boukri Service Informatique (BSI)</strong> est une entreprise spécialisée dans les services informatiques, la réparation de matériel et la mise en place d'infrastructures IT performantes. Nous mettons notre expertise au service des entreprises et particuliers pour garantir un environnement technologique fiable et sécurisé.
-                    </p>
-                    <p class="text-slate-500 leading-relaxed mb-8">
-                        Notre équipe de techniciens qualifiés intervient avec professionnalisme et réactivité pour répondre à tous vos besoins : dépannage, installation, maintenance et optimisation de vos systèmes informatiques.
-                    </p>
-
-                    <!-- Features List -->
-                    <div class="space-y-4 mb-8">
-                        <div class="flex items-start gap-3">
-                            <div class="w-6 h-6 rounded-full bg-brand-50 flex items-center justify-center flex-shrink-0 mt-0.5">
-                                <i data-lucide="check" class="w-3.5 h-3.5 text-brand-600"></i>
-                            </div>
-                            <span class="text-slate-600 text-sm">Expertise technique certifiée et à jour</span>
-                        </div>
-                        <div class="flex items-start gap-3">
-                            <div class="w-6 h-6 rounded-full bg-brand-50 flex items-center justify-center flex-shrink-0 mt-0.5">
-                                <i data-lucide="check" class="w-3.5 h-3.5 text-brand-600"></i>
-                            </div>
-                            <span class="text-slate-600 text-sm">Interventions rapides et solutions durables</span>
-                        </div>
-                        <div class="flex items-start gap-3">
-                            <div class="w-6 h-6 rounded-full bg-brand-50 flex items-center justify-center flex-shrink-0 mt-0.5">
-                                <i data-lucide="check" class="w-3.5 h-3.5 text-brand-600"></i>
-                            </div>
-                            <span class="text-slate-600 text-sm">Relation de confiance et transparence totale</span>
-                        </div>
-                        <div class="flex items-start gap-3">
-                            <div class="w-6 h-6 rounded-full bg-brand-50 flex items-center justify-center flex-shrink-0 mt-0.5">
-                                <i data-lucide="check" class="w-3.5 h-3.5 text-brand-600"></i>
-                            </div>
-                            <span class="text-slate-600 text-sm">Accompagnement personnalisé selon vos besoins</span>
-                        </div>
-                    </div>
-
-                    <a href="#services" class="inline-flex items-center gap-2 text-brand-600 font-medium text-sm hover:gap-3 transition-all">
-                        Découvrir nos services
-                        <i data-lucide="arrow-right" class="w-4 h-4"></i>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Services Section -->
-    <section id="services" class="py-24 lg:py-32 bg-slate-50 relative">
-        <div class="absolute inset-0 opacity-30"
-             style="background-image: radial-gradient(circle at 1px 1px, rgba(148,163,184,0.3) 1px, transparent 0); background-size: 40px 40px;">
-        </div>
-
-        <div class="relative max-w-7xl mx-auto px-6 lg:px-8">
-            <!-- Section Header -->
-            <div class="text-center mb-16 lg:mb-20 observe-animate">
-                <span class="inline-flex items-center gap-2 text-brand-600 text-xs font-semibold tracking-wider uppercase mb-4">
-                    <span class="w-8 h-px bg-brand-300"></span>
-                    Ce que nous offrons
-                    <span class="w-8 h-px bg-brand-300"></span>
+                <span class="flex items-center gap-2 hover:text-slate-900 transition-colors">
+                    <i data-lucide="camera" class="w-4 h-4 text-brand-500"></i> Dahua Technology
                 </span>
-                <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-slate-900 mb-4">
-                    Nos <span class="text-brand-600">services</span>
-                </h2>
-                <p class="text-lg text-slate-500 max-w-2xl mx-auto">
-                    Des solutions complètes pour tous vos besoins informatiques
-                </p>
-            </div>
-
-            <!-- Services Grid -->
-            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                <!-- Service 1 -->
-                <div class="service-card bg-white rounded-2xl p-8 border border-slate-100 shadow-sm observe-animate relative overflow-hidden group">
-                    <div class="absolute top-0 right-0 text-7xl font-black text-slate-50 service-number transition-colors duration-300 leading-none">01</div>
-                    <div class="relative">
-                        <div class="service-icon w-14 h-14 bg-brand-50 rounded-2xl flex items-center justify-center mb-6 transition-all duration-300">
-                            <i data-lucide="wrench" class="w-6 h-6 text-brand-600"></i>
-                        </div>
-                        <h3 class="text-lg font-bold text-slate-900 mb-3">Réparation informatique</h3>
-                        <p class="text-sm text-slate-500 leading-relaxed mb-6">
-                            Diagnostic et réparation de ordinateurs, portables, imprimantes et tout matériel informatique. Intervention rapide et garantie.
-                        </p>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="text-[10px] font-medium text-brand-600 bg-brand-50 px-2.5 py-1 rounded-full">Hardware</span>
-                            <span class="text-[10px] font-medium text-brand-600 bg-brand-50 px-2.5 py-1 rounded-full">Dépannage</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Service 2 -->
-                <div class="service-card bg-white rounded-2xl p-8 border border-slate-100 shadow-sm observe-animate relative overflow-hidden group">
-                    <div class="absolute top-0 right-0 text-7xl font-black text-slate-50 service-number transition-colors duration-300 leading-none">02</div>
-                    <div class="relative">
-                        <div class="service-icon w-14 h-14 bg-brand-50 rounded-2xl flex items-center justify-center mb-6 transition-all duration-300">
-                            <i data-lucide="download" class="w-6 h-6 text-brand-600"></i>
-                        </div>
-                        <h3 class="text-lg font-bold text-slate-900 mb-3">Installation systèmes</h3>
-                        <p class="text-sm text-slate-500 leading-relaxed mb-6">
-                            Installation et configuration de systèmes d'exploitation, logiciels professionnels et équipements informatiques sur mesure.
-                        </p>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="text-[10px] font-medium text-brand-600 bg-brand-50 px-2.5 py-1 rounded-full">Logiciels</span>
-                            <span class="text-[10px] font-medium text-brand-600 bg-brand-50 px-2.5 py-1 rounded-full">Configuration</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Service 3 -->
-                <div class="service-card bg-white rounded-2xl p-8 border border-slate-100 shadow-sm observe-animate relative overflow-hidden group">
-                    <div class="absolute top-0 right-0 text-7xl font-black text-slate-50 service-number transition-colors duration-300 leading-none">03</div>
-                    <div class="relative">
-                        <div class="service-icon w-14 h-14 bg-brand-50 rounded-2xl flex items-center justify-center mb-6 transition-all duration-300">
-                            <i data-lucide="network" class="w-6 h-6 text-brand-600"></i>
-                        </div>
-                        <h3 class="text-lg font-bold text-slate-900 mb-3">Infrastructure réseau</h3>
-                        <p class="text-sm text-slate-500 leading-relaxed mb-6">
-                            Conception et déploiement d'infrastructures réseau : câblage, serveurs, pare-feu, VPN et solutions de virtualisation.
-                        </p>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="text-[10px] font-medium text-brand-600 bg-brand-50 px-2.5 py-1 rounded-full">Réseaux</span>
-                            <span class="text-[10px] font-medium text-brand-600 bg-brand-50 px-2.5 py-1 rounded-full">Serveurs</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Service 4 -->
-                <div class="service-card bg-white rounded-2xl p-8 border border-slate-100 shadow-sm observe-animate relative overflow-hidden group">
-                    <div class="absolute top-0 right-0 text-7xl font-black text-slate-50 service-number transition-colors duration-300 leading-none">04</div>
-                    <div class="relative">
-                        <div class="service-icon w-14 h-14 bg-brand-50 rounded-2xl flex items-center justify-center mb-6 transition-all duration-300">
-                            <i data-lucide="headphones" class="w-6 h-6 text-brand-600"></i>
-                        </div>
-                        <h3 class="text-lg font-bold text-slate-900 mb-3">Maintenance & Support</h3>
-                        <p class="text-sm text-slate-500 leading-relaxed mb-6">
-                            Contrats de maintenance préventive, support technique réactif et surveillance continue de vos systèmes IT.
-                        </p>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="text-[10px] font-medium text-brand-600 bg-brand-50 px-2.5 py-1 rounded-full">Maintenir</span>
-                            <span class="text-[10px] font-medium text-brand-600 bg-brand-50 px-2.5 py-1 rounded-full">Assistance</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- CTA Banner -->
-            <div class="mt-16 observe-animate">
-                <div class="bg-gradient-to-r from-brand-700 via-brand-600 to-brand-500 rounded-3xl p-8 lg:p-12 relative overflow-hidden">
-                    <div class="absolute inset-0 opacity-10"
-                         style="background-image: linear-gradient(rgba(255,255,255,0.15) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.15) 1px, transparent 1px); background-size: 30px 30px;">
-                    </div>
-                    <div class="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full -translate-y-1/2 translate-x-1/2"></div>
-                    <div class="relative flex flex-col lg:flex-row items-center justify-between gap-6">
-                        <div>
-                            <h3 class="text-2xl lg:text-3xl font-bold text-white mb-2">Besoin d'une solution sur mesure ?</h3>
-                            <p class="text-brand-100 text-sm lg:text-base">Contactez-nous pour discuter de votre projet et obtenir un devis gratuit.</p>
-                        </div>
-                        <a href="#contact" class="flex-shrink-0 bg-white text-brand-700 font-semibold px-8 py-3.5 rounded-xl inline-flex items-center gap-2 text-sm hover:bg-brand-50 hover:shadow-lg transition-all">
-                            <span>Demande de devis</span>
-                            <i data-lucide="arrow-right" class="w-4 h-4"></i>
-                        </a>
-                    </div>
-                </div>
+                <span class="flex items-center gap-2 hover:text-slate-900 transition-colors">
+                    <i data-lucide="shield" class="w-4 h-4 text-brand-500"></i> Uniview
+                </span>
+                <span class="flex items-center gap-2 hover:text-slate-900 transition-colors">
+                    <i data-lucide="server" class="w-4 h-4 text-brand-500"></i> Cisco & TP-Link
+                </span>
+                <span class="flex items-center gap-2 hover:text-slate-900 transition-colors">
+                    <i data-lucide="hard-drive" class="w-4 h-4 text-brand-500"></i> NVR & Synology
+                </span>
+                <span class="flex items-center gap-2 hover:text-slate-900 transition-colors">
+                    <i data-lucide="cpu" class="w-4 h-4 text-brand-500"></i> Systèmes Windows / Linux
+                </span>
             </div>
         </div>
-    </section>
+    </div>
 
-    <!-- Stats Section -->
-    <section class="py-20 bg-white relative">
-        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+    <!-- Key Statistics & Live Visitor Counter -->
+    <section class="py-12 bg-white border-b border-slate-200/80">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-2 lg:grid-cols-4 gap-6">
-                <div class="stat-card text-center p-8 rounded-2xl border border-slate-100 bg-slate-50/50 observe-animate">
-                    <div class="w-12 h-12 mx-auto bg-brand-50 rounded-xl flex items-center justify-center mb-4">
-                        <i data-lucide="users" class="w-5 h-5 text-brand-600"></i>
+                <!-- Stat 1 -->
+                <div class="stat-card bg-slate-50/70 p-6 rounded-3xl border border-slate-200/90 shadow-xs text-center observe-animate">
+                    <div class="w-12 h-12 rounded-2xl bg-brand-50 text-brand-600 mx-auto flex items-center justify-center mb-3">
+                        <i data-lucide="award" class="w-6 h-6"></i>
                     </div>
-                    <div class="text-3xl lg:text-4xl font-bold text-slate-900 mb-1">500+</div>
-                    <div class="text-sm text-slate-500">Clients satisfaits</div>
+                    <div class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">10+</div>
+                    <div class="text-xs font-bold text-slate-600 mt-1 uppercase tracking-wider">Ans d'expérience</div>
+                    <div class="text-[11px] text-slate-400 mt-0.5">Savoir-faire IT & Sécurité</div>
                 </div>
-                <div class="stat-card text-center p-8 rounded-2xl border border-slate-100 bg-slate-50/50 observe-animate">
-                    <div class="w-12 h-12 mx-auto bg-brand-50 rounded-xl flex items-center justify-center mb-4">
-                        <i data-lucide="settings" class="w-5 h-5 text-brand-600"></i>
+
+                <!-- Stat 2 -->
+                <div class="stat-card bg-slate-50/70 p-6 rounded-3xl border border-slate-200/90 shadow-xs text-center observe-animate">
+                    <div class="w-12 h-12 rounded-2xl bg-brand-50 text-brand-600 mx-auto flex items-center justify-center mb-3">
+                        <i data-lucide="video" class="w-6 h-6"></i>
                     </div>
-                    <div class="text-3xl lg:text-4xl font-bold text-slate-900 mb-1">2000+</div>
-                    <div class="text-sm text-slate-500">Interventions réalisées</div>
+                    <div class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">1 000+</div>
+                    <div class="text-xs font-bold text-slate-600 mt-1 uppercase tracking-wider">Caméras Installées</div>
+                    <div class="text-[11px] text-slate-400 mt-0.5">Boutiques, villas & bureaux</div>
                 </div>
-                <div class="stat-card text-center p-8 rounded-2xl border border-slate-100 bg-slate-50/50 observe-animate">
-                    <div class="w-12 h-12 mx-auto bg-brand-50 rounded-xl flex items-center justify-center mb-4">
-                        <i data-lucide="clock" class="w-5 h-5 text-brand-600"></i>
+
+                <!-- Stat 3: Daily Visitors with Live Badge -->
+                <div class="stat-card bg-gradient-to-br from-slate-50/70 to-emerald-50/50 p-6 rounded-3xl border border-emerald-300 shadow-xs text-center relative overflow-hidden observe-animate">
+                    <div class="absolute top-3 right-3 flex items-center gap-1 bg-emerald-100 text-emerald-700 text-[10px] font-extrabold px-2.5 py-0.5 rounded-full border border-emerald-200">
+                        <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-live-dot"></span>
+                        LIVE
                     </div>
-                    <div class="text-3xl lg:text-4xl font-bold text-slate-900 mb-1">10+</div>
-                    <div class="text-sm text-slate-500">Années d'expérience</div>
+                    <div class="w-12 h-12 rounded-2xl bg-emerald-100 text-emerald-600 mx-auto flex items-center justify-center mb-3">
+                        <i data-lucide="users" class="w-6 h-6"></i>
+                    </div>
+                    <div class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
+                        <span id="statDailyVisitors">185</span>+
+                    </div>
+                    <div class="text-xs font-bold text-emerald-700 mt-1 uppercase tracking-wider">Visiteurs / jour</div>
+                    <div class="text-[11px] text-slate-500 mt-0.5">Fréquentation quotidienne</div>
                 </div>
-                <div class="stat-card text-center p-8 rounded-2xl border border-slate-100 bg-slate-50/50 observe-animate">
-                    <div class="w-12 h-12 mx-auto bg-brand-50 rounded-xl flex items-center justify-center mb-4">
-                        <i data-lucide="star" class="w-5 h-5 text-brand-600"></i>
+
+                <!-- Stat 4 -->
+                <div class="stat-card bg-slate-50/70 p-6 rounded-3xl border border-slate-200/90 shadow-xs text-center observe-animate">
+                    <div class="w-12 h-12 rounded-2xl bg-brand-50 text-brand-600 mx-auto flex items-center justify-center mb-3">
+                        <i data-lucide="shield-check" class="w-6 h-6"></i>
                     </div>
-                    <div class="text-3xl lg:text-4xl font-bold text-slate-900 mb-1">99%</div>
-                    <div class="text-sm text-slate-500">Taux de satisfaction</div>
+                    <div class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">99%</div>
+                    <div class="text-xs font-bold text-slate-600 mt-1 uppercase tracking-wider">Satisfaction Client</div>
+                    <div class="text-[11px] text-slate-400 mt-0.5">Support & garantie continue</div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="py-24 lg:py-32 bg-slate-50 relative">
-        <div class="absolute inset-0 opacity-20"
-             style="background-image: radial-gradient(circle at 1px 1px, rgba(148,163,184,0.2) 1px, transparent 0); background-size: 40px 40px;">
-        </div>
+    <!-- Featured Section: Expert en Caméras & Sécurité (Deep Dive) -->
+    <section id="cameras-focus" class="py-20 lg:py-28 bg-slate-900 text-white relative overflow-hidden">
+        <!-- Background Security Pattern -->
+        <div class="security-dot-grid absolute inset-0 opacity-20 pointer-events-none"></div>
+        <div class="absolute top-1/4 right-0 w-96 h-96 bg-brand-600/10 rounded-full blur-3xl pointer-events-none"></div>
 
-        <div class="relative max-w-7xl mx-auto px-6 lg:px-8">
+        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <!-- Section Header -->
-            <div class="text-center mb-16 lg:mb-20 observe-animate">
-                <span class="inline-flex items-center gap-2 text-brand-600 text-xs font-semibold tracking-wider uppercase mb-4">
-                    <span class="w-8 h-px bg-brand-300"></span>
-                    Parlez-nous de votre projet
-                    <span class="w-8 h-px bg-brand-300"></span>
+            <div class="text-center max-w-3xl mx-auto mb-16 observe-animate">
+                <span class="inline-flex items-center gap-2 bg-brand-500/10 text-brand-400 text-xs font-bold tracking-widest uppercase px-4 py-1.5 rounded-full border border-brand-500/20 mb-4">
+                    <i data-lucide="video" class="w-3.5 h-3.5"></i>
+                    Vidéosurveillance & Protection des locaux
                 </span>
-                <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-slate-900 mb-4">
-                    Contactez-<span class="text-brand-600">nous</span>
+                <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-white mb-5">
+                    Solutions de <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-400 via-sky-400 to-emerald-400">Caméras Intelligentes</span> & Sécurité
                 </h2>
-                <p class="text-lg text-slate-500 max-w-2xl mx-auto">
-                    Notre équipe est à votre disposition pour répondre à toutes vos questions
+                <p class="text-slate-400 text-base sm:text-lg leading-relaxed">
+                    Protégez votre entreprise, magasin, villa ou entrepôt à Tanger avec nos systèmes de vidéosurveillance de dernière génération.
                 </p>
             </div>
 
-            <div class="grid lg:grid-cols-5 gap-12 lg:gap-16">
-                <!-- Contact Info -->
-                <div class="lg:col-span-2 observe-animate">
-                    <h3 class="text-xl font-bold text-slate-900 mb-6">Informations de contact</h3>
-                    <p class="text-slate-500 text-sm leading-relaxed mb-8">
-                        N'hésitez pas à nous contacter par téléphone, email ou à nous rendre visite directement à notre bureau.
+            <!-- 4 Pillar Advantages for Cameras & Systems -->
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+                <!-- Advantage 1 -->
+                <div class="bg-slate-800/80 backdrop-blur-sm border border-slate-700/80 rounded-2xl p-6 hover:border-brand-500 transition-all duration-300 observe-animate">
+                    <div class="w-12 h-12 rounded-xl bg-brand-500/10 border border-brand-500/20 flex items-center justify-center text-brand-400 mb-5">
+                        <i data-lucide="eye" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-white mb-2">Vision Nocturne & 4K</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed">
+                        Clarté cristalline même dans l'obscurité totale grâce à la technologie infrarouge et couleur ColorVu / Full-Color 24/7.
                     </p>
+                </div>
 
-                    <div class="space-y-4">
-                        <!-- Phone -->
-                        <a href="tel:+213555123456" class="contact-info-item flex items-center gap-4 p-4 rounded-xl border border-slate-100 bg-white">
-                            <div class="w-12 h-12 bg-brand-50 rounded-xl flex items-center justify-center flex-shrink-0">
-                                <i data-lucide="phone" class="w-5 h-5 text-brand-600"></i>
-                            </div>
-                            <div>
-                                <div class="text-xs text-slate-400 font-medium uppercase tracking-wider">Téléphone</div>
-                                <div class="text-sm font-semibold text-slate-800 mt-0.5">+212 612 345 678</div>
-                            </div>
-                        </a>
+                <!-- Advantage 2 -->
+                <div class="bg-slate-800/80 backdrop-blur-sm border border-slate-700/80 rounded-2xl p-6 hover:border-emerald-500 transition-all duration-300 observe-animate">
+                    <div class="w-12 h-12 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-400 mb-5">
+                        <i data-lucide="smartphone" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-white mb-2">Accès Direct Mobile</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed">
+                        Visualisez vos caméras en direct et rejouez les enregistrements depuis votre smartphone (iOS & Android) partout dans le monde.
+                    </p>
+                </div>
 
-                        <!-- Email -->
-                        <a href="mailto:contact@bsi-informatique.dz" class="contact-info-item flex items-center gap-4 p-4 rounded-xl border border-slate-100 bg-white">
-                            <div class="w-12 h-12 bg-brand-50 rounded-xl flex items-center justify-center flex-shrink-0">
-                                <i data-lucide="mail" class="w-5 h-5 text-brand-600"></i>
-                            </div>
-                            <div>
-                                <div class="text-xs text-slate-400 font-medium uppercase tracking-wider">Email</div>
-                                <div class="text-sm font-semibold text-slate-800 mt-0.5">contact@bsi-informatique.dz</div>
-                            </div>
-                        </a>
+                <!-- Advantage 3 -->
+                <div class="bg-slate-800/80 backdrop-blur-sm border border-slate-700/80 rounded-2xl p-6 hover:border-sky-500 transition-all duration-300 observe-animate">
+                    <div class="w-12 h-12 rounded-xl bg-sky-500/10 border border-sky-500/20 flex items-center justify-center text-sky-400 mb-5">
+                        <i data-lucide="shield-alert" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-white mb-2">Détection Intelligente IA</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed">
+                        Reconnaissance des humains et des véhicules sans fausses alertes provoquées par le vent, la pluie ou les animaux.
+                    </p>
+                </div>
 
-                        <!-- Address -->
-                        <div class="contact-info-item flex items-start gap-4 p-4 rounded-xl border border-slate-100 bg-white">
-                            <div class="w-12 h-12 bg-brand-50 rounded-xl flex items-center justify-center flex-shrink-0 mt-0.5">
-                                <i data-lucide="map-pin" class="w-5 h-5 text-brand-600"></i>
-                            </div>
-                            <div>
-                                <div class="text-xs text-slate-400 font-medium uppercase tracking-wider">Adresse</div>
-                                <div class="text-sm font-semibold text-slate-800 mt-0.5">123 Rue de l'Industrie<br>Tanger</div>
-                            </div>
+                <!-- Advantage 4 -->
+                <div class="bg-slate-800/80 backdrop-blur-sm border border-slate-700/80 rounded-2xl p-6 hover:border-amber-500 transition-all duration-300 observe-animate">
+                    <div class="w-12 h-12 rounded-xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center text-amber-400 mb-5">
+                        <i data-lucide="hard-drive" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-white mb-2">Enregistrement Sécurisé</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed">
+                        Stockage sur disques durs de surveillance professionnels (NVR/DVR) avec plusieurs semaines d'historique inviolable.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Spotlight Card with WhatsApp & Phone Direct CTA -->
+            <div class="bg-gradient-to-r from-brand-900/60 via-slate-800/90 to-slate-900 border border-brand-500/30 rounded-3xl p-8 sm:p-10 lg:p-12 observe-animate">
+                <div class="grid lg:grid-cols-12 gap-8 items-center">
+                    <div class="lg:col-span-8 space-y-4">
+                        <div class="inline-flex items-center gap-2 bg-emerald-500/10 text-emerald-400 text-xs font-semibold px-3 py-1 rounded-full border border-emerald-500/30">
+                            <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                            Audit & Devis Gratuit sur place à Tanger
                         </div>
+                        <h3 class="text-2xl sm:text-3xl font-extrabold text-white">
+                            Vous souhaitez équiper vos locaux en caméras ou sécuriser vos systèmes ?
+                        </h3>
+                        <p class="text-slate-300 text-sm sm:text-base leading-relaxed">
+                            BSI se déplace à votre adresse pour évaluer vos besoins, déterminer le nombre d'angles de vue et vous proposer la configuration la plus adaptée avec le meilleur rapport qualité/prix.
+                        </p>
+                        <div class="text-xs text-slate-400 flex items-center gap-2">
+                            <i data-lucide="map-pin" class="w-4 h-4 text-brand-400"></i>
+                            <span>Boutique & Atelier : 22 Rue Cancer N° 4, Lalla Chafia, Tanger</span>
+                        </div>
+                    </div>
+                    <div class="lg:col-span-4 flex flex-col gap-3">
+                        <a href="https://wa.me/212661494384?text=Bonjour%20BSI,%20je%20souhaite%20un%20devis%20gratuit%20pour%20des%20cam%C3%A9ras%20de%20surveillance." target="_blank" rel="noopener" class="btn-whatsapp text-white font-bold py-3.5 px-6 rounded-xl flex items-center justify-center gap-2.5 text-center shadow-lg">
+                            <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                                <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/>
+                            </svg>
+                            <span>Demander sur WhatsApp</span>
+                        </a>
+                        <a href="tel:+212661494384" class="bg-white/10 hover:bg-white/20 border border-white/20 text-white font-bold py-3.5 px-6 rounded-xl flex items-center justify-center gap-2.5 text-center transition-all">
+                            <i data-lucide="phone-call" class="w-4 h-4 text-brand-400"></i>
+                            <span>Appeler le 06 61 49 43 84</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-                        <!-- Hours -->
-                        <div class="contact-info-item flex items-start gap-4 p-4 rounded-xl border border-slate-100 bg-white">
-                            <div class="w-12 h-12 bg-brand-50 rounded-xl flex items-center justify-center flex-shrink-0 mt-0.5">
-                                <i data-lucide="clock" class="w-5 h-5 text-brand-600"></i>
-                            </div>
-                            <div>
-                                <div class="text-xs text-slate-400 font-medium uppercase tracking-wider">Horaires</div>
-                                <div class="text-sm font-semibold text-slate-800 mt-0.5">Dim - Jeu : 08h00 - 17h00<br>Sam : 09h00 - 13h00</div>
-                            </div>
+    <!-- All Services Grid Section -->
+    <section id="services" class="py-20 lg:py-28 bg-white relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Section Header -->
+            <div class="text-center max-w-3xl mx-auto mb-16 observe-animate">
+                <span class="inline-flex items-center gap-2 text-brand-600 text-xs font-bold tracking-widest uppercase mb-3">
+                    <span class="w-6 h-px bg-brand-400"></span>
+                    Nos Domaines d'Expertise
+                    <span class="w-6 h-px bg-brand-400"></span>
+                </span>
+                <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-slate-900 mb-4">
+                    Services Complets en <span class="text-brand-600">Sécurité & Informatique</span>
+                </h2>
+                <p class="text-slate-500 text-base sm:text-lg">
+                    Des prestations clés en main pour équiper, protéger et maintenir vos installations technologiques.
+                </p>
+            </div>
+
+            <!-- 6 Services Grid -->
+            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+
+                <!-- Service 1: Caméras de Surveillance -->
+                <div class="service-card bg-white rounded-3xl p-8 border border-slate-200/90 shadow-sm relative overflow-hidden group observe-animate">
+                    <div class="absolute top-0 right-0 text-7xl font-black text-slate-100 service-number transition-colors duration-300 leading-none select-none p-4">01</div>
+                    <div class="relative z-10">
+                        <div class="service-icon w-14 h-14 bg-brand-50 text-brand-600 rounded-2xl flex items-center justify-center mb-6 shadow-xs transition-all duration-300">
+                            <i data-lucide="video" class="w-7 h-7"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-900 mb-3 group-hover:text-brand-600 transition-colors">
+                            Caméras de Surveillance
+                        </h3>
+                        <p class="text-sm text-slate-500 leading-relaxed mb-6">
+                            Installation de caméras IP, Dôme et Bullet HD/4K intérieures et extérieures. Vision nocturne couleur, détection humaine par IA, enregistreurs NVR et consultation mobile en direct.
+                        </p>
+                        <ul class="text-xs text-slate-600 space-y-2 mb-6 border-t border-slate-100 pt-4">
+                            <li class="flex items-center gap-2">
+                                <i data-lucide="check" class="w-3.5 h-3.5 text-brand-600 flex-shrink-0"></i>
+                                <span>Caméras fixes et motorisées PTZ 360°</span>
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <i data-lucide="check" class="w-3.5 h-3.5 text-brand-600 flex-shrink-0"></i>
+                                <span>Accès à distance sur iPhone & Android</span>
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <i data-lucide="check" class="w-3.5 h-3.5 text-brand-600 flex-shrink-0"></i>
+                                <span>Câblage soigné et matériel étanche (IP67)</span>
+                            </li>
+                        </ul>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="text-[11px] font-semibold text-brand-700 bg-brand-50 px-3 py-1 rounded-full">Hikvision</span>
+                            <span class="text-[11px] font-semibold text-brand-700 bg-brand-50 px-3 py-1 rounded-full">Dahua</span>
+                            <span class="text-[11px] font-semibold text-brand-700 bg-brand-50 px-3 py-1 rounded-full">NVR/DVR</span>
                         </div>
                     </div>
                 </div>
 
-                <!-- Contact Form -->
-                <div class="lg:col-span-3 observe-animate">
-                    <form id="contactForm" class="bg-white rounded-3xl p-8 lg:p-10 shadow-sm border border-slate-100">
-                        <div class="grid sm:grid-cols-2 gap-5 mb-5">
-                            <div>
-                                <label class="block text-xs font-semibold text-slate-700 uppercase tracking-wider mb-2">Nom complet</label>
-                                <input type="text" required placeholder="Votre nom"
-                                       class="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm text-slate-800 placeholder:text-slate-300 focus:outline-none focus:ring-2 focus:ring-brand-500/20 focus:border-brand-400 transition-all">
-                            </div>
-                            <div>
-                                <label class="block text-xs font-semibold text-slate-700 uppercase tracking-wider mb-2">Téléphone</label>
-                                <input type="tel" required placeholder="Votre numéro"
-                                       class="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm text-slate-800 placeholder:text-slate-300 focus:outline-none focus:ring-2 focus:ring-brand-500/20 focus:border-brand-400 transition-all">
+                <!-- Service 2: Systèmes d'Alarme & Sécurité -->
+                <div class="service-card bg-white rounded-3xl p-8 border border-slate-200/90 shadow-sm relative overflow-hidden group observe-animate">
+                    <div class="absolute top-0 right-0 text-7xl font-black text-slate-100 service-number transition-colors duration-300 leading-none select-none p-4">02</div>
+                    <div class="relative z-10">
+                        <div class="service-icon w-14 h-14 bg-brand-50 text-brand-600 rounded-2xl flex items-center justify-center mb-6 shadow-xs transition-all duration-300">
+                            <i data-lucide="shield-alert" class="w-7 h-7"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-900 mb-3 group-hover:text-brand-600 transition-colors">
+                            Systèmes de Sécurité & Alarmes
+                        </h3>
+                        <p class="text-sm text-slate-500 leading-relaxed mb-6">
+                            Mise en place de systèmes d'alarme anti-intrusion sans fil et filaires. Détecteurs de mouvement volumétriques, sirènes puissantes et alertes instantanées sur smartphone.
+                        </p>
+                        <ul class="text-xs text-slate-600 space-y-2 mb-6 border-t border-slate-100 pt-4">
+                            <li class="flex items-center gap-2">
+                                <i data-lucide="check" class="w-3.5 h-3.5 text-brand-600 flex-shrink-0"></i>
+                                <span>Détecteurs d'ouverture portes et fenêtres</span>
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <i data-lucide="check" class="w-3.5 h-3.5 text-brand-600 flex-shrink-0"></i>
+                                <span>Sirène extérieure avec flash stroboscopique</span>
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <i data-lucide="check" class="w-3.5 h-3.5 text-brand-600 flex-shrink-0"></i>
+                                <span>Notification instantanée par SMS / Appel / App</span>
+                            </li>
+                        </ul>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="text-[11px] font-semibold text-brand-700 bg-brand-50 px-3 py-1 rounded-full">Anti-intrusion</span>
+                            <span class="text-[11px] font-semibold text-brand-700 bg-brand-50 px-3 py-1 rounded-full">Sans fil</span>
+                            <span class="text-[11px] font-semibold text-brand-700 bg-brand-50 px-3 py-1 rounded-full">GSM / IP</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Service 3: Contrôle d'Accès & Pointage Biométrique -->
+                <div class="service-card bg-white rounded-3xl p-8 border border-slate-200/90 shadow-sm relative overflow-hidden group observe-animate">
+                    <div class="absolute top-0 right-0 text-7xl font-black text-slate-100 service-number transition-colors duration-300 leading-none select-none p-4">03</div>
+                    <div class="relative z-10">
+                        <div class="service-icon w-14 h-14 bg-brand-50 text-brand-600 rounded-2xl flex items-center justify-center mb-6 shadow-xs transition-all duration-300">
+                            <i data-lucide="fingerprint" class="w-7 h-7"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-900 mb-3 group-hover:text-brand-600 transition-colors">
+                            Contrôle d'Accès & Pointage
+                        </h3>
+                        <p class="text-sm text-slate-500 leading-relaxed mb-6">
+                            Solutions de gestion d'accès et pointeuses pour entreprises : reconnaissance faciale, empreintes digitales, badges RFID, interphones et visiophones connectés.
+                        </p>
+                        <ul class="text-xs text-slate-600 space-y-2 mb-6 border-t border-slate-100 pt-4">
+                            <li class="flex items-center gap-2">
+                                <i data-lucide="check" class="w-3.5 h-3.5 text-brand-600 flex-shrink-0"></i>
+                                <span>Pointeuses biométriques & logiciel RH de présence</span>
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <i data-lucide="check" class="w-3.5 h-3.5 text-brand-600 flex-shrink-0"></i>
+                                <span>Gâches électriques, ventouses et barrières</span>
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <i data-lucide="check" class="w-3.5 h-3.5 text-brand-600 flex-shrink-0"></i>
+                                <span>Visiophonie IP avec ouverture à distance</span>
+                            </li>
+                        </ul>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="text-[11px] font-semibold text-brand-700 bg-brand-50 px-3 py-1 rounded-full">Biométrie</span>
+                            <span class="text-[11px] font-semibold text-brand-700 bg-brand-50 px-3 py-1 rounded-full">Badges RFID</span>
+                            <span class="text-[11px] font-semibold text-brand-700 bg-brand-50 px-3 py-1 rounded-full">Interphonie</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Service 4: Systèmes Informatiques & Serveurs -->
+                <div class="service-card bg-white rounded-3xl p-8 border border-slate-200/90 shadow-sm relative overflow-hidden group observe-animate">
+                    <div class="absolute top-0 right-0 text-7xl font-black text-slate-100 service-number transition-colors duration-300 leading-none select-none p-4">04</div>
+                    <div class="relative z-10">
+                        <div class="service-icon w-14 h-14 bg-brand-50 text-brand-600 rounded-2xl flex items-center justify-center mb-6 shadow-xs transition-all duration-300">
+                            <i data-lucide="server" class="w-7 h-7"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-900 mb-3 group-hover:text-brand-600 transition-colors">
+                            Systèmes & Serveurs Informatiques
+                        </h3>
+                        <p class="text-sm text-slate-500 leading-relaxed mb-6">
+                            Déploiement et paramétrage complet de systèmes informatiques : serveurs de fichiers, postes de travail, systèmes Windows/Linux, virtualisation et stratégies de sauvegarde.
+                        </p>
+                        <ul class="text-xs text-slate-600 space-y-2 mb-6 border-t border-slate-100 pt-4">
+                            <li class="flex items-center gap-2">
+                                <i data-lucide="check" class="w-3.5 h-3.5 text-brand-600 flex-shrink-0"></i>
+                                <span>Configuration Windows Server & Active Directory</span>
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <i data-lucide="check" class="w-3.5 h-3.5 text-brand-600 flex-shrink-0"></i>
+                                <span>Sauvegarde locale NAS & réplication sécurisée</span>
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <i data-lucide="check" class="w-3.5 h-3.5 text-brand-600 flex-shrink-0"></i>
+                                <span>Protection antivirus et pare-feu d'entreprise</span>
+                            </li>
+                        </ul>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="text-[11px] font-semibold text-brand-700 bg-brand-50 px-3 py-1 rounded-full">Serveurs</span>
+                            <span class="text-[11px] font-semibold text-brand-700 bg-brand-50 px-3 py-1 rounded-full">Windows/Linux</span>
+                            <span class="text-[11px] font-semibold text-brand-700 bg-brand-50 px-3 py-1 rounded-full">Backup</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Service 5: Réseaux & Câblage Structuré -->
+                <div class="service-card bg-white rounded-3xl p-8 border border-slate-200/90 shadow-sm relative overflow-hidden group observe-animate">
+                    <div class="absolute top-0 right-0 text-7xl font-black text-slate-100 service-number transition-colors duration-300 leading-none select-none p-4">05</div>
+                    <div class="relative z-10">
+                        <div class="service-icon w-14 h-14 bg-brand-50 text-brand-600 rounded-2xl flex items-center justify-center mb-6 shadow-xs transition-all duration-300">
+                            <i data-lucide="network" class="w-7 h-7"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-900 mb-3 group-hover:text-brand-600 transition-colors">
+                            Infrastructure Réseau & Wi-Fi
+                        </h3>
+                        <p class="text-sm text-slate-500 leading-relaxed mb-6">
+                            Conception de réseaux d'entreprise haute performance : baies de brassage, câblage RJ45 Cat6/Cat7, fibre optique, routeurs, switches manageables et bornes Wi-Fi longue portée.
+                        </p>
+                        <ul class="text-xs text-slate-600 space-y-2 mb-6 border-t border-slate-100 pt-4">
+                            <li class="flex items-center gap-2">
+                                <i data-lucide="check" class="w-3.5 h-3.5 text-brand-600 flex-shrink-0"></i>
+                                <span>Installation et organisation de baies informatiques</span>
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <i data-lucide="check" class="w-3.5 h-3.5 text-brand-600 flex-shrink-0"></i>
+                                <span>Wi-Fi maillé professionnel sans coupure</span>
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <i data-lucide="check" class="w-3.5 h-3.5 text-brand-600 flex-shrink-0"></i>
+                                <span>Configuration de VPN sécurisé pour télétravail</span>
+                            </li>
+                        </ul>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="text-[11px] font-semibold text-brand-700 bg-brand-50 px-3 py-1 rounded-full">Baies réseau</span>
+                            <span class="text-[11px] font-semibold text-brand-700 bg-brand-50 px-3 py-1 rounded-full">Câblage RJ45</span>
+                            <span class="text-[11px] font-semibold text-brand-700 bg-brand-50 px-3 py-1 rounded-full">Wi-Fi Pro</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Service 6: Maintenance & Dépannage Réactif -->
+                <div class="service-card bg-white rounded-3xl p-8 border border-slate-200/90 shadow-sm relative overflow-hidden group observe-animate">
+                    <div class="absolute top-0 right-0 text-7xl font-black text-slate-100 service-number transition-colors duration-300 leading-none select-none p-4">06</div>
+                    <div class="relative z-10">
+                        <div class="service-icon w-14 h-14 bg-brand-50 text-brand-600 rounded-2xl flex items-center justify-center mb-6 shadow-xs transition-all duration-300">
+                            <i data-lucide="wrench" class="w-7 h-7"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-900 mb-3 group-hover:text-brand-600 transition-colors">
+                            Réparation & Maintenance IT
+                        </h3>
+                        <p class="text-sm text-slate-500 leading-relaxed mb-6">
+                            Dépannage d'urgence sur site à Tanger ou en atelier. Réparation d'ordinateurs, portables, imprimantes, remise en état de systèmes informatiques et contrats d'assistance préventive.
+                        </p>
+                        <ul class="text-xs text-slate-600 space-y-2 mb-6 border-t border-slate-100 pt-4">
+                            <li class="flex items-center gap-2">
+                                <i data-lucide="check" class="w-3.5 h-3.5 text-brand-600 flex-shrink-0"></i>
+                                <span>Intervention rapide sur tout Tanger</span>
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <i data-lucide="check" class="w-3.5 h-3.5 text-brand-600 flex-shrink-0"></i>
+                                <span>Contrats de maintenance mensuelle pour entreprises</span>
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <i data-lucide="check" class="w-3.5 h-3.5 text-brand-600 flex-shrink-0"></i>
+                                <span>Diagnostic précis et devis transparent avant réparation</span>
+                            </li>
+                        </ul>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="text-[11px] font-semibold text-brand-700 bg-brand-50 px-3 py-1 rounded-full">Dépannage</span>
+                            <span class="text-[11px] font-semibold text-brand-700 bg-brand-50 px-3 py-1 rounded-full">Hardware</span>
+                            <span class="text-[11px] font-semibold text-brand-700 bg-brand-50 px-3 py-1 rounded-full">Contrat Pro</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- À Propos Section with Monitoring Visual -->
+    <section id="apropos" class="py-20 lg:py-28 bg-slate-50 relative border-t border-slate-200/80">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+
+                <!-- Left Column Visual (5 cols) -->
+                <div class="lg:col-span-5 observe-animate">
+                    <div class="relative">
+                        <div class="rounded-3xl overflow-hidden shadow-2xl border-2 border-white bg-slate-900 group">
+                            <img src="assets/images/monitoring-system.jpg"
+                                 alt="Centre de supervision et gestion de systèmes informatiques BSI Tanger"
+                                 class="w-full h-80 sm:h-96 object-cover object-center group-hover:scale-105 transition-transform duration-700">
+                            <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent"></div>
+                            <div class="absolute bottom-5 left-5 right-5 text-white">
+                                <span class="text-xs font-bold uppercase tracking-wider text-brand-400">Expertise & Savoir-faire</span>
+                                <div class="text-lg font-bold">Solutions fiables adaptées à vos besoins</div>
                             </div>
                         </div>
-                        <div class="mb-5">
-                            <label class="block text-xs font-semibold text-slate-700 uppercase tracking-wider mb-2">Email</label>
-                            <input type="email" required placeholder="votre@email.com"
-                                   class="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm text-slate-800 placeholder:text-slate-300 focus:outline-none focus:ring-2 focus:ring-brand-500/20 focus:border-brand-400 transition-all">
+
+                        <!-- Accent Floating Card -->
+                        <div class="absolute -bottom-6 -right-6 bg-brand-600 text-white rounded-2xl p-5 shadow-xl shadow-brand-600/30 hidden sm:block border-2 border-white">
+                            <div class="text-3xl font-extrabold">10+</div>
+                            <div class="text-xs font-medium text-brand-100">Années d'excellence IT</div>
                         </div>
-                        <div class="mb-5">
-                            <label class="block text-xs font-semibold text-slate-700 uppercase tracking-wider mb-2">Service souhaité</label>
-                            <select required class="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm text-slate-800 focus:outline-none focus:ring-2 focus:ring-brand-500/20 focus:border-brand-400 transition-all appearance-none bg-white"
-                                    style="background-image: url('data:image/svg+xml;charset=UTF-8,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2216%22 height=%2216%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22%2394a3b8%22 stroke-width=%222%22%3E%3Cpath d=%22m6 9 6 6 6-6%22/%3E%3C/svg%3E'); background-repeat: no-repeat; background-position: right 12px center;">
-                                <option value="" disabled selected>Choisir un service</option>
-                                <option>Réparation informatique</option>
-                                <option>Installation systèmes & logiciels</option>
-                                <option>Infrastructure réseau</option>
-                                <option>Maintenance & support technique</option>
-                                <option>Autre demande</option>
+                    </div>
+                </div>
+
+                <!-- Right Column Content (7 cols) -->
+                <div class="lg:col-span-7 space-y-6 observe-animate">
+                    <span class="inline-flex items-center gap-2 text-brand-600 text-xs font-bold tracking-widest uppercase">
+                        <span class="w-6 h-px bg-brand-400"></span>
+                        À Propos de Nous
+                    </span>
+
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight leading-tight">
+                        Boukri Service Informatique : <span class="text-brand-600">Votre Partenaire de Confiance à Tanger</span>
+                    </h2>
+
+                    <p class="text-slate-600 text-base leading-relaxed">
+                        Implantée à Tanger au <strong>22 Rue Cancer N° 4, Lalla Chafia</strong>, <strong class="text-slate-900">BSI (Boukri Service Informatique)</strong> s'est imposée comme une référence dans le domaine de la vidéosurveillance, des systèmes de sécurité et des infrastructures informatiques.
+                    </p>
+
+                    <p class="text-slate-600 text-base leading-relaxed">
+                        Que vous soyez un particulier souhaitant protéger votre résidence, ou une entreprise cherchant à sécuriser ses bureaux, entrepôts et parcs informatiques, nous vous offrons un service sur mesure alliant réactivité, matériel de premier choix et installation soignée.
+                    </p>
+
+                    <!-- Key Pillars -->
+                    <div class="grid sm:grid-cols-2 gap-4 pt-2">
+                        <div class="flex items-start gap-3 bg-white p-4 rounded-2xl border border-slate-200/80 shadow-xs">
+                            <div class="w-8 h-8 rounded-xl bg-brand-50 flex items-center justify-center flex-shrink-0 text-brand-600 font-bold mt-0.5">
+                                <i data-lucide="check-circle-2" class="w-5 h-5"></i>
+                            </div>
+                            <div>
+                                <div class="text-sm font-bold text-slate-900">Expertise Certifiée</div>
+                                <div class="text-xs text-slate-500 mt-0.5">Techniciens expérimentés en vidéosurveillance et réseaux</div>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-3 bg-white p-4 rounded-2xl border border-slate-200/80 shadow-xs">
+                            <div class="w-8 h-8 rounded-xl bg-brand-50 flex items-center justify-center flex-shrink-0 text-brand-600 font-bold mt-0.5">
+                                <i data-lucide="zap" class="w-5 h-5"></i>
+                            </div>
+                            <div>
+                                <div class="text-sm font-bold text-slate-900">Intervention Rapide</div>
+                                <div class="text-xs text-slate-500 mt-0.5">Déplacement et dépannage express partout à Tanger</div>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-3 bg-white p-4 rounded-2xl border border-slate-200/80 shadow-xs">
+                            <div class="w-8 h-8 rounded-xl bg-brand-50 flex items-center justify-center flex-shrink-0 text-brand-600 font-bold mt-0.5">
+                                <i data-lucide="shield" class="w-5 h-5"></i>
+                            </div>
+                            <div>
+                                <div class="text-sm font-bold text-slate-900">Garantie Matériel</div>
+                                <div class="text-xs text-slate-500 mt-0.5">Équipements certifiés de grandes marques mondiales</div>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-3 bg-white p-4 rounded-2xl border border-slate-200/80 shadow-xs">
+                            <div class="w-8 h-8 rounded-xl bg-brand-50 flex items-center justify-center flex-shrink-0 text-brand-600 font-bold mt-0.5">
+                                <i data-lucide="headphones" class="w-5 h-5"></i>
+                            </div>
+                            <div>
+                                <div class="text-sm font-bold text-slate-900">Support Après-Vente</div>
+                                <div class="text-xs text-slate-500 mt-0.5">Assistance téléphonique et suivi continu</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Direct Contact Links -->
+                    <div class="flex flex-wrap items-center gap-4 pt-4">
+                        <a href="tel:+212661494384" class="btn-primary text-white font-bold px-6 py-3.5 rounded-xl inline-flex items-center gap-2 text-sm shadow-md">
+                            <i data-lucide="phone" class="w-4 h-4"></i>
+                            <span>Appelez le 06 61 49 43 84</span>
+                        </a>
+                        <a href="https://wa.me/212661494384" target="_blank" rel="noopener" class="btn-whatsapp text-white font-bold px-6 py-3.5 rounded-xl inline-flex items-center gap-2 text-sm shadow-md">
+                            <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24">
+                                <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86.174.086.275.072.376-.044.101-.116.433-.506.549-.68.116-.173.231-.144.39-.086s1.011.477 1.184.564.289.13.332.202c.043.073.043.419-.101.824z"/>
+                            </svg>
+                            <span>WhatsApp : 06 61 49 43 84</span>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact & Location Section -->
+    <section id="contact" class="py-20 lg:py-28 bg-white relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+            <!-- Section Header -->
+            <div class="text-center max-w-3xl mx-auto mb-16 observe-animate">
+                <span class="inline-flex items-center gap-2 text-brand-600 text-xs font-bold tracking-widest uppercase mb-3">
+                    <span class="w-6 h-px bg-brand-400"></span>
+                    Contact & Localisation
+                    <span class="w-6 h-px bg-brand-400"></span>
+                </span>
+                <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-slate-900 mb-4">
+                    Contactez <span class="text-brand-600">BSI Tanger</span>
+                </h2>
+                <p class="text-slate-500 text-base sm:text-lg">
+                    Une question ? Besoin d'un devis pour vos caméras ou systèmes ? Contactez-nous par téléphone, WhatsApp ou envoyez votre demande.
+                </p>
+            </div>
+
+            <!-- 4 Quick Contact Cards -->
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+
+                <!-- Phone Card -->
+                <a href="tel:+212661494384" class="contact-info-item flex flex-col p-6 rounded-3xl border border-slate-200/90 bg-slate-50/60 hover:bg-white hover:border-brand-500 group transition-all">
+                    <div class="w-12 h-12 rounded-2xl bg-brand-100 text-brand-600 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                        <i data-lucide="phone-call" class="w-6 h-6"></i>
+                    </div>
+                    <div class="text-xs font-bold uppercase tracking-wider text-slate-400">Téléphone Direct</div>
+                    <div class="text-lg font-bold text-slate-900 mt-1">06 61 49 43 84</div>
+                    <div class="text-xs text-brand-600 font-semibold mt-2 flex items-center gap-1">
+                        <span>Appeler maintenant</span>
+                        <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                    </div>
+                </a>
+
+                <!-- WhatsApp Card -->
+                <a href="https://wa.me/212661494384?text=Bonjour%20BSI,%20je%20souhaite%20un%20devis%20ou%20des%20informations." target="_blank" rel="noopener" class="contact-info-item flex flex-col p-6 rounded-3xl border border-emerald-200 bg-emerald-50/50 hover:bg-white hover:border-emerald-500 group transition-all">
+                    <div class="w-12 h-12 rounded-2xl bg-whatsapp text-white flex items-center justify-center mb-4 group-hover:scale-110 transition-transform shadow-md">
+                        <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24">
+                            <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/>
+                        </svg>
+                    </div>
+                    <div class="text-xs font-bold uppercase tracking-wider text-emerald-700">WhatsApp Chat</div>
+                    <div class="text-lg font-bold text-slate-900 mt-1">06 61 49 43 84</div>
+                    <div class="text-xs text-emerald-600 font-semibold mt-2 flex items-center gap-1">
+                        <span>Discuter en direct</span>
+                        <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                    </div>
+                </a>
+
+                <!-- Address Card -->
+                <a href="https://www.google.com/maps/search/?api=1&query=22+Rue+Cancer+N+4+Lalla+Chafia+Tanger" target="_blank" rel="noopener" class="contact-info-item flex flex-col p-6 rounded-3xl border border-slate-200/90 bg-slate-50/60 hover:bg-white hover:border-brand-500 group transition-all">
+                    <div class="w-12 h-12 rounded-2xl bg-sky-100 text-sky-600 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                        <i data-lucide="map-pin" class="w-6 h-6"></i>
+                    </div>
+                    <div class="text-xs font-bold uppercase tracking-wider text-slate-400">Notre Adresse</div>
+                    <div class="text-sm font-bold text-slate-900 mt-1 leading-snug">
+                        22 Rue Cancer N° 4,<br>Lalla Chafia, Tanger
+                    </div>
+                    <div class="text-xs text-sky-600 font-semibold mt-2 flex items-center gap-1">
+                        <span>Ouvrir sur Google Maps</span>
+                        <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+                    </div>
+                </a>
+
+                <!-- Hours Card -->
+                <div class="flex flex-col p-6 rounded-3xl border border-slate-200/90 bg-slate-50/60">
+                    <div class="w-12 h-12 rounded-2xl bg-amber-100 text-amber-600 flex items-center justify-center mb-4">
+                        <i data-lucide="clock" class="w-6 h-6"></i>
+                    </div>
+                    <div class="text-xs font-bold uppercase tracking-wider text-slate-400">Horaires d'ouverture</div>
+                    <div class="text-sm font-bold text-slate-900 mt-1 leading-snug">
+                        Lun - Sam : 08h30 - 19h30
+                    </div>
+                    <div class="text-xs text-slate-500 mt-2">
+                        Assistance & Urgences 24/7
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Form & Map Side by Side -->
+            <div class="grid lg:grid-cols-12 gap-8 items-start">
+
+                <!-- Contact Form (7 cols) -->
+                <div class="lg:col-span-7 bg-white rounded-3xl p-6 sm:p-10 border border-slate-200/90 shadow-sm observe-animate">
+                    <div class="mb-6">
+                        <h3 class="text-2xl font-bold text-slate-900">Demander un Devis ou Poser une Question</h3>
+                        <p class="text-slate-500 text-sm mt-1">
+                            Remplissez ce formulaire ou envoyez-le directement sur WhatsApp en un clic.
+                        </p>
+                    </div>
+
+                    <form id="contactForm" class="space-y-4">
+                        <div class="grid sm:grid-cols-2 gap-4">
+                            <div>
+                                <label for="formName" class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">Nom et Prénom *</label>
+                                <input type="text" id="formName" required placeholder="Votre nom complet"
+                                       class="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm text-slate-800 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-brand-500/20 focus:border-brand-500 transition-all bg-slate-50/50 focus:bg-white">
+                            </div>
+                            <div>
+                                <label for="formPhone" class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">Numéro de Téléphone *</label>
+                                <input type="tel" id="formPhone" required placeholder="Ex: 06 61 49 43 84"
+                                       class="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm text-slate-800 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-brand-500/20 focus:border-brand-500 transition-all bg-slate-50/50 focus:bg-white">
+                            </div>
+                        </div>
+
+                        <div>
+                            <label for="formService" class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">Service souhaité *</label>
+                            <select id="formService" required class="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm text-slate-800 focus:outline-none focus:ring-2 focus:ring-brand-500/20 focus:border-brand-500 transition-all appearance-none bg-slate-50/50 focus:bg-white"
+                                    style="background-image: url('data:image/svg+xml;charset=UTF-8,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2216%22 height=%2216%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22%2364748b%22 stroke-width=%222%22%3E%3Cpath d=%22m6 9 6 6 6-6%22/%3E%3C/svg%3E'); background-repeat: no-repeat; background-position: right 14px center;">
+                                <option value="" disabled selected>Sélectionner un domaine</option>
+                                <option value="Installation Caméras de Surveillance">Installation Caméras de Surveillance (HD/4K, IP)</option>
+                                <option value="Systèmes de Sécurité & Alarmes">Systèmes de Sécurité & Alarmes anti-intrusion</option>
+                                <option value="Contrôle d'accès & Biométrie">Contrôle d'accès & Pointage Biométrique</option>
+                                <option value="Systèmes & Réseaux Informatiques">Systèmes & Réseaux Informatiques (Baie, câblage, Wi-Fi)</option>
+                                <option value="Maintenance & Dépannage Réactif">Maintenance & Dépannage Réactif</option>
+                                <option value="Autre demande">Autre demande sur mesure</option>
                             </select>
                         </div>
-                        <div class="mb-6">
-                            <label class="block text-xs font-semibold text-slate-700 uppercase tracking-wider mb-2">Message</label>
-                            <textarea required rows="4" placeholder="Décrivez votre besoin..."
-                                      class="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm text-slate-800 placeholder:text-slate-300 focus:outline-none focus:ring-2 focus:ring-brand-500/20 focus:border-brand-400 transition-all resize-none"></textarea>
+
+                        <div>
+                            <label for="formMessage" class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">Détails de votre besoin</label>
+                            <textarea id="formMessage" rows="3" placeholder="Précisez votre adresse à Tanger, le type de local (magasin, villa, bureau), et toute exigence particulière..."
+                                      class="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm text-slate-800 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-brand-500/20 focus:border-brand-500 transition-all resize-none bg-slate-50/50 focus:bg-white"></textarea>
                         </div>
-                        <button type="submit" class="btn-primary w-full text-white font-semibold py-3.5 rounded-xl flex items-center justify-center gap-2 text-sm">
-                            <span>Envoyer le message</span>
-                            <i data-lucide="send" class="w-4 h-4"></i>
-                        </button>
+
+                        <!-- Form Actions with WhatsApp Option -->
+                        <div class="grid sm:grid-cols-2 gap-3 pt-2">
+                            <!-- WhatsApp Send Button -->
+                            <button type="button" id="sendWhatsAppBtn" class="btn-whatsapp w-full text-white font-bold py-3.5 px-4 rounded-xl flex items-center justify-center gap-2 text-sm shadow-md">
+                                <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24">
+                                    <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86.174.086.275.072.376-.044.101-.116.433-.506.549-.68.116-.173.231-.144.39-.086s1.011.477 1.184.564.289.13.332.202c.043.073.043.419-.101.824z"/>
+                                </svg>
+                                <span>Envoyer via WhatsApp</span>
+                            </button>
+
+                            <!-- Submit Form Button -->
+                            <button type="submit" class="btn-primary w-full text-white font-bold py-3.5 px-4 rounded-xl flex items-center justify-center gap-2 text-sm shadow-md">
+                                <i data-lucide="send" class="w-4 h-4"></i>
+                                <span>Envoyer par Formulaire</span>
+                            </button>
+                        </div>
                     </form>
                 </div>
+
+                <!-- Location Map & Directions (5 cols) -->
+                <div class="lg:col-span-5 space-y-6 observe-animate">
+                    <div class="bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white rounded-3xl p-8 border border-slate-700/80 shadow-xl relative overflow-hidden">
+                        <div class="relative z-10 space-y-5">
+                            <span class="inline-flex items-center gap-2 bg-brand-500/20 text-brand-300 text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full border border-brand-500/30">
+                                <i data-lucide="map-pin" class="w-3.5 h-3.5"></i> Localisation à Tanger
+                            </span>
+
+                            <h4 class="text-2xl font-extrabold text-white">
+                                Venez nous rencontrer à notre agence
+                            </h4>
+
+                            <div class="space-y-3 text-slate-300 text-sm">
+                                <div class="flex items-start gap-3">
+                                    <div class="w-8 h-8 rounded-lg bg-white/10 flex items-center justify-center flex-shrink-0 text-brand-400 font-bold mt-0.5">
+                                        <i data-lucide="home" class="w-4 h-4"></i>
+                                    </div>
+                                    <div>
+                                        <div class="text-xs text-slate-400 font-medium">Adresse officielle :</div>
+                                        <div class="text-white font-semibold">22 RUE CANCER N° 4, LALLA CHAFIA, TANGER</div>
+                                    </div>
+                                </div>
+
+                                <div class="flex items-start gap-3">
+                                    <div class="w-8 h-8 rounded-lg bg-white/10 flex items-center justify-center flex-shrink-0 text-emerald-400 font-bold mt-0.5">
+                                        <i data-lucide="phone" class="w-4 h-4"></i>
+                                    </div>
+                                    <div>
+                                        <div class="text-xs text-slate-400 font-medium">Ligne directe :</div>
+                                        <a href="tel:+212661494384" class="text-emerald-300 font-semibold hover:underline">06 61 49 43 84</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="pt-4 border-t border-slate-700">
+                                <a href="https://www.google.com/maps/search/?api=1&query=22+Rue+Cancer+N+4+Lalla+Chafia+Tanger" target="_blank" rel="noopener" class="btn-primary w-full text-white font-bold py-3 px-5 rounded-xl flex items-center justify-center gap-2 text-sm shadow-md">
+                                    <i data-lucide="navigation" class="w-4 h-4"></i>
+                                    <span>Itinéraire Google Maps</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Direct Call Banner -->
+                    <div class="bg-gradient-to-r from-emerald-600 to-teal-700 text-white rounded-3xl p-6 shadow-lg flex items-center justify-between gap-4">
+                        <div>
+                            <div class="text-xs font-semibold text-emerald-100 uppercase tracking-wider">Besoin d'une intervention urgente ?</div>
+                            <div class="text-xl font-extrabold text-white mt-0.5">06 61 49 43 84</div>
+                        </div>
+                        <a href="tel:+212661494384" class="bg-white text-emerald-800 font-bold px-4 py-2.5 rounded-xl text-xs hover:bg-emerald-50 transition-colors shadow-xs flex items-center gap-1.5 flex-shrink-0">
+                            <i data-lucide="phone" class="w-3.5 h-3.5"></i>
+                            <span>Appeler</span>
+                        </a>
+                    </div>
+                </div>
+
             </div>
+
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="bg-slate-900 text-white relative overflow-hidden">
-        <!-- Decorative -->
-        <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-brand-500/30 to-transparent"></div>
-        <div class="absolute bottom-0 left-0 w-80 h-80 bg-brand-900/20 rounded-full blur-3xl"></div>
+    <footer class="bg-slate-950 text-white relative overflow-hidden border-t border-slate-800">
+        <!-- Ambient Glow -->
+        <div class="absolute bottom-0 left-0 w-96 h-96 bg-brand-600/10 rounded-full blur-3xl pointer-events-none"></div>
 
-        <div class="relative max-w-7xl mx-auto px-6 lg:px-8">
-            <!-- Main Footer -->
-            <div class="py-16 lg:py-20 grid sm:grid-cols-2 lg:grid-cols-4 gap-12">
-                <!-- Company Info -->
-                <div class="sm:col-span-2 lg:col-span-1">
-                    <img src="assets/images/NewLogo.jpeg"
-                         alt="BSI Logo" class="h-12 w-auto rounded-lg mb-5 brightness-110">
-                    <p class="text-slate-400 text-sm leading-relaxed mb-6">
-                        Boukri Service Informatique — Votre partenaire de confiance pour tous vos besoins en solutions informatiques.
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="py-16 lg:py-20 grid sm:grid-cols-2 lg:grid-cols-12 gap-10">
+
+                <!-- Company Info (5 cols) -->
+                <div class="lg:col-span-5 space-y-4">
+                    <div class="flex items-center gap-3">
+                        <img src="assets/images/NewLogo.jpeg"
+                             alt="BSI Logo" class="h-14 w-auto rounded-xl bg-white p-1 border border-slate-800">
+                        <div>
+                            <div class="text-2xl font-black tracking-tight text-white">BSI</div>
+                            <div class="text-xs text-brand-400 font-semibold tracking-wider uppercase">Boukri Service Informatique</div>
+                        </div>
+                    </div>
+                    <p class="text-slate-400 text-sm leading-relaxed max-w-sm">
+                        Spécialiste de référence à Tanger en vente, installation et dépannage de caméras de surveillance HD/4K, systèmes d'alarme, contrôle d'accès biométrique et infrastructures réseau.
                     </p>
-                    <div class="flex gap-3">
-                        <a href="#" class="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center hover:bg-brand-600 hover:border-brand-600 transition-all">
-                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                    <div class="flex items-center gap-3 pt-2">
+                        <!-- WhatsApp button in footer -->
+                        <a href="https://wa.me/212661494384" target="_blank" rel="noopener" class="w-10 h-10 rounded-xl bg-whatsapp hover:bg-whatsapp-hover text-white flex items-center justify-center transition-all shadow-md" aria-label="WhatsApp">
+                            <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                                <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/>
+                            </svg>
                         </a>
-                        <a href="#" class="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center hover:bg-brand-600 hover:border-brand-600 transition-all">
-                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+                        <!-- Phone Call -->
+                        <a href="tel:+212661494384" class="w-10 h-10 rounded-xl bg-brand-600 hover:bg-brand-500 text-white flex items-center justify-center transition-all shadow-md" aria-label="Téléphone">
+                            <i data-lucide="phone" class="w-5 h-5"></i>
                         </a>
-                        <a href="#" class="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center hover:bg-brand-600 hover:border-brand-600 transition-all">
-                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                        <!-- Map Location -->
+                        <a href="https://www.google.com/maps/search/?api=1&query=22+Rue+Cancer+N+4+Lalla+Chafia+Tanger" target="_blank" rel="noopener" class="w-10 h-10 rounded-xl bg-slate-800 hover:bg-slate-700 text-white flex items-center justify-center transition-all" aria-label="Carte">
+                            <i data-lucide="map-pin" class="w-5 h-5"></i>
                         </a>
                     </div>
                 </div>
 
-                <!-- Quick Links -->
-                <div>
-                    <h4 class="text-sm font-semibold uppercase tracking-wider text-white mb-5">Navigation</h4>
-                    <ul class="space-y-3">
-                        <li><a href="#accueil" class="text-slate-400 text-sm hover:text-brand-400 transition-colors inline-flex items-center gap-2"><i data-lucide="chevron-right" class="w-3 h-3"></i>Accueil</a></li>
-                        <li><a href="#apropos" class="text-slate-400 text-sm hover:text-brand-400 transition-colors inline-flex items-center gap-2"><i data-lucide="chevron-right" class="w-3 h-3"></i>À Propos</a></li>
-                        <li><a href="#services" class="text-slate-400 text-sm hover:text-brand-400 transition-colors inline-flex items-center gap-2"><i data-lucide="chevron-right" class="w-3 h-3"></i>Services</a></li>
-                        <li><a href="#contact" class="text-slate-400 text-sm hover:text-brand-400 transition-colors inline-flex items-center gap-2"><i data-lucide="chevron-right" class="w-3 h-3"></i>Contact</a></li>
+                <!-- Navigation Links (3 cols) -->
+                <div class="lg:col-span-3 space-y-3">
+                    <h4 class="text-xs font-bold uppercase tracking-wider text-slate-200">Prestations Clés</h4>
+                    <ul class="space-y-2.5 text-sm text-slate-400">
+                        <li><a href="materiel.html" class="hover:text-brand-400 transition-colors flex items-center gap-2 text-brand-300 font-semibold"><i data-lucide="cpu" class="w-3.5 h-3.5 text-brand-400"></i>Matériel & Caisses POS</a></li>
+                        <li><a href="#cameras-focus" class="hover:text-brand-400 transition-colors flex items-center gap-2"><i data-lucide="chevron-right" class="w-3.5 h-3.5 text-brand-500"></i>Caméras de Surveillance</a></li>
+                        <li><a href="#services" class="hover:text-brand-400 transition-colors flex items-center gap-2"><i data-lucide="chevron-right" class="w-3.5 h-3.5 text-brand-500"></i>Systèmes de Sécurité & Alarmes</a></li>
+                        <li><a href="#services" class="hover:text-brand-400 transition-colors flex items-center gap-2"><i data-lucide="chevron-right" class="w-3.5 h-3.5 text-brand-500"></i>Contrôle d'accès & Biométrie</a></li>
+                        <li><a href="#services" class="hover:text-brand-400 transition-colors flex items-center gap-2"><i data-lucide="chevron-right" class="w-3.5 h-3.5 text-brand-500"></i>Réseaux, Wi-Fi & Baies IT</a></li>
+                        <li><a href="#services" class="hover:text-brand-400 transition-colors flex items-center gap-2"><i data-lucide="chevron-right" class="w-3.5 h-3.5 text-brand-500"></i>Dépannage & Maintenance</a></li>
                     </ul>
                 </div>
 
-                <!-- Services -->
-                <div>
-                    <h4 class="text-sm font-semibold uppercase tracking-wider text-white mb-5">Services</h4>
-                    <ul class="space-y-3">
-                        <li><a href="#services" class="text-slate-400 text-sm hover:text-brand-400 transition-colors inline-flex items-center gap-2"><i data-lucide="chevron-right" class="w-3 h-3"></i>Réparation</a></li>
-                        <li><a href="#services" class="text-slate-400 text-sm hover:text-brand-400 transition-colors inline-flex items-center gap-2"><i data-lucide="chevron-right" class="w-3 h-3"></i>Installation</a></li>
-                        <li><a href="#services" class="text-slate-400 text-sm hover:text-brand-400 transition-colors inline-flex items-center gap-2"><i data-lucide="chevron-right" class="w-3 h-3"></i>Réseau & Serveurs</a></li>
-                        <li><a href="#services" class="text-slate-400 text-sm hover:text-brand-400 transition-colors inline-flex items-center gap-2"><i data-lucide="chevron-right" class="w-3 h-3"></i>Maintenance</a></li>
+                <!-- Coordinates & Contact Info (4 cols) -->
+                <div class="lg:col-span-4 space-y-3">
+                    <h4 class="text-xs font-bold uppercase tracking-wider text-slate-200">Coordonnées Tanger</h4>
+                    <ul class="space-y-3 text-sm text-slate-400">
+                        <li class="flex items-start gap-3">
+                            <i data-lucide="phone" class="w-4 h-4 text-brand-400 mt-1 flex-shrink-0"></i>
+                            <div>
+                                <div class="text-xs text-slate-500">Téléphone direct / WhatsApp :</div>
+                                <a href="tel:+212661494384" class="text-white font-semibold hover:text-brand-400 transition-colors">06 61 49 43 84</a>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i data-lucide="map-pin" class="w-4 h-4 text-brand-400 mt-1 flex-shrink-0"></i>
+                            <div>
+                                <div class="text-xs text-slate-500">Adresse Tanger :</div>
+                                <span class="text-white font-medium">22 RUE CANCER N 4 LALLA CHAFIA, TANGER</span>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i data-lucide="clock" class="w-4 h-4 text-brand-400 mt-1 flex-shrink-0"></i>
+                            <div>
+                                <div class="text-xs text-slate-500">Disponibilité :</div>
+                                <span class="text-slate-300">Du Lundi au Samedi (08h30 - 19h30)</span>
+                            </div>
+                        </li>
                     </ul>
                 </div>
 
-                <!-- Contact -->
-                <div>
-                    <h4 class="text-sm font-semibold uppercase tracking-wider text-white mb-5">Contact</h4>
-                    <ul class="space-y-4">
-                        <li class="flex items-start gap-3">
-                            <i data-lucide="phone" class="w-4 h-4 text-brand-400 mt-0.5 flex-shrink-0"></i>
-                            <span class="text-slate-400 text-sm">+212 612 345 678</span>
-                        </li>
-                        <li class="flex items-start gap-3">
-                            <i data-lucide="mail" class="w-4 h-4 text-brand-400 mt-0.5 flex-shrink-0"></i>
-                            <span class="text-slate-400 text-sm">contact@bsi-informatique.dz</span>
-                        </li>
-                        <li class="flex items-start gap-3">
-                            <i data-lucide="map-pin" class="w-4 h-4 text-brand-400 mt-0.5 flex-shrink-0"></i>
-                            <span class="text-slate-400 text-sm">123 Rue de l'Industrie<br>Tanger</span>
-                        </li>
-                    </ul>
-                </div>
             </div>
 
-            <!-- Bottom Bar -->
-            <div class="py-6 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4">
-                <p class="text-slate-500 text-xs">
-                    © <span id="currentYear"></span> BSI — Boukri Service Informatique. Tous droits réservés.
-                </p>
+            <!-- Bottom Subfooter -->
+            <div class="py-6 border-t border-slate-900 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-slate-500">
+                <p>© <span id="currentYear"></span> BSI — Boukri Service Informatique. Tous droits réservés. Tanger, Maroc.</p>
+                
+                <!-- Daily Visitors & Online Status Badge -->
+                <div class="inline-flex items-center gap-2 bg-slate-900 px-3.5 py-1.5 rounded-full border border-slate-800 text-slate-400">
+                    <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                    <span>Visiteurs aujourd'hui : <strong id="footerDailyVisitors" class="text-white font-bold">185</strong></span>
+                    <span class="text-slate-700">•</span>
+                    <span><strong id="footerOnlineVisitors" class="text-emerald-400 font-semibold">14</strong> en ligne</span>
+                </div>
+
                 <div class="flex items-center gap-6">
-                    <a href="#" class="text-slate-500 text-xs hover:text-slate-300 transition-colors">Mentions légales</a>
-                    <a href="#" class="text-slate-500 text-xs hover:text-slate-300 transition-colors">Politique de confidentialité</a>
+                    <a href="#accueil" class="hover:text-slate-300 transition-colors">Accueil</a>
+                    <a href="materiel.html" class="hover:text-slate-300 transition-colors">Matériel & POS</a>
+                    <a href="#cameras-focus" class="hover:text-slate-300 transition-colors">Caméras & Sécurité</a>
+                    <a href="#contact" class="hover:text-slate-300 transition-colors">Contact</a>
                 </div>
             </div>
         </div>
     </footer>
 
-    <!-- Toast Container -->
-    <div id="toastContainer" class="fixed bottom-6 right-6 z-50 flex flex-col gap-3"></div>
+    <!-- Floating WhatsApp Widget Button (Bottom Right) -->
+    <aside class="floating-whatsapp" aria-label="Contact rapide WhatsApp">
+        <!-- Floating Tooltip -->
+        <div class="tooltip bg-slate-900/95 backdrop-blur-md text-white text-xs font-bold py-2 px-3.5 rounded-xl shadow-2xl border border-slate-700/80 whitespace-nowrap hidden sm:flex items-center gap-2">
+            <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+            <span>Discuter avec BSI sur WhatsApp</span>
+            <span class="text-slate-400 font-normal">| 06 61 49 43 84</span>
+        </div>
+
+        <!-- WhatsApp Circular Button with Pulse -->
+        <a href="https://wa.me/212661494384?text=Bonjour%20BSI,%20je%20souhaite%20des%20informations%20ou%20un%20devis%20pour%20des%20cam%C3%A9ras%20ou%20syst%C3%A8mes."
+           target="_blank"
+           rel="noopener"
+           class="w-14 h-14 rounded-full bg-whatsapp hover:bg-whatsapp-hover text-white flex items-center justify-center shadow-2xl shadow-emerald-500/40 transition-all duration-300 hover:scale-110 animate-pulse-whatsapp"
+           aria-label="Contacter BSI sur WhatsApp au 06 61 49 43 84">
+            <svg class="w-7 h-7 fill-current" viewBox="0 0 24 24">
+                <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/>
+            </svg>
+        </a>
+    </aside>
 
     <!-- Back to Top Button -->
-    <button id="backToTop" class="fixed bottom-6 left-6 z-50 w-12 h-12 bg-brand-600 text-white rounded-xl shadow-lg shadow-brand-500/30 flex items-center justify-center opacity-0 translate-y-4 transition-all duration-300 hover:bg-brand-700 hover:shadow-xl" aria-label="Retour en haut">
+    <button id="backToTop" class="fixed bottom-6 left-6 z-40 w-11 h-11 bg-slate-900/90 backdrop-blur-md text-white rounded-xl shadow-lg border border-slate-700/60 flex items-center justify-center opacity-0 pointer-events-none translate-y-4 transition-all duration-300 hover:bg-brand-600 hover:border-brand-500" aria-label="Retour en haut de page">
         <i data-lucide="arrow-up" class="w-5 h-5"></i>
     </button>
 
-    <!-- scripts -->
-    <script src="assets/js/script.js" defer></script>
+    <!-- Toast Notification Container -->
+    <div id="toastContainer" class="fixed bottom-24 right-6 z-50 flex flex-col gap-3 pointer-events-none"></div>
+
+    <!-- Scripts -->
     <script src="assets/js/script.js" defer></script>
 </body>
 </html>
